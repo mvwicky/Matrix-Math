@@ -413,7 +413,7 @@ void numout(float num)
 	cout << num << endl;
 }
 
-int board(int a[9])
+float board(float a[9])
 {
 	cout << "| " << a[0] << " | " << a[1] << " | " << a[2] << " |" << endl;
 	cout << "-------------" << endl;
@@ -422,7 +422,7 @@ int board(int a[9])
 	cout << "| " << a[6] << " | " << a[7] << " | " << a[8] << " |" << endl;
 }
 
-void initialize_matrix(int a[9])
+void initialize_matrix(float a[9])
 {
 	int n = 0;
 	while (n <= 8)
@@ -432,42 +432,46 @@ void initialize_matrix(int a[9])
 	}
 }
 
-void addition(float number1 , float number2)
+float addition(float number1 , float number2)
 {
 	float result;
 	result = number1 + number2;
 	cout << "Sum = " << result << endl;
+	return result;
 }
 
-void subtraction(float number1 , float number2)
+float subtraction(float number1 , float number2)
 {
 	float result;
 	result = number1 - number2;
 	cout << "Difference = " << result << endl;
+	return result;
 }
 
-void muliplication(float number1 , float number2)
+float muliplication(float number1 , float number2)
 {
 	float result;
 	result = number1 * number2;
 	cout << "Product = " << result << endl;
+	return result;
 }
 
-void division(float number1 , float number2)
+float division(float number1 , float number2)
 {
 	float result;
 	result = number1 / number2;
 	cout << "Quotient = " << result << endl;
+	return result;
 }
 
-void assign_values(int a[9] , int s , int v)
+void assign_values(float a[9] , int s , int v)
 {
 	a[s] = v;
 }
 
-void adding_columns(int a[9] , int c)
+float adding_columns(float a[9] , int c)
 {
-	int sum = 0;
+	float sum = 0;
 	if (c == 1)
 	{
 		sum = a[0] + a[3] + a[6];
@@ -482,9 +486,10 @@ void adding_columns(int a[9] , int c)
 	}
 	text_sl("Sum = ");
 	numout(sum);
+	return sum;
 }
 
-void adding_rows(int a[9] , int r)
+float adding_rows(float a[9] , int r)
 {
 	int sum = 0;
 	if (r == 1)
@@ -501,9 +506,10 @@ void adding_rows(int a[9] , int r)
 	}
 	text_sl("Sum = ");
 	numout(sum);
+	return sum;
 }
 
-void adding_diagonals(int a[9] , int d)
+float adding_diagonals(float a[9] , int d)
 {
 	int sum = 0;
 	if (d == 1) 
@@ -516,9 +522,10 @@ void adding_diagonals(int a[9] , int d)
 	}
 	text_sl("Sum = ");
 	numout(sum);
+	return sum;
 }
 
-void subtract_columns(int a[9] , int c)
+float subtract_columns(float a[9] , int c)
 {
 	int diff = 0;
 	if (c == 1)
@@ -535,9 +542,10 @@ void subtract_columns(int a[9] , int c)
 	}
 	text_sl("Difference = ");
 	numout(diff);
+	return diff;
 }
 
-void subtract_rows(int a[9] , int r)
+float subtract_rows(float a[9] , int r)
 {
 	int diff = 0;
 	if (r == 1)
@@ -554,9 +562,10 @@ void subtract_rows(int a[9] , int r)
 	}
 	text_sl("Difference = ");
 	numout(diff);
+	return diff;
 }
 
-void subtract_diagonals(int a[9] , int d)
+float subtract_diagonals(float a[9] , int d)
 {
 	int diff = 0;
 	if (d == 1) 
@@ -569,9 +578,10 @@ void subtract_diagonals(int a[9] , int d)
 	}
 	text_sl("Difference = ");
 	numout(diff);
+	return diff;
 }
 
-void mult_columns(int a[9] , int c)
+float mult_columns(float a[9] , int c)
 {
 	int prod = 0;
 	if (c == 1)
@@ -588,9 +598,10 @@ void mult_columns(int a[9] , int c)
 	}
 	text_sl("Product = ");
 	numout(prod);
+	return prod;
 }
 
-void mult_rows(int a[9] , int r)
+float mult_rows(float a[9] , int r)
 {
 	int prod = 0;
 	if (r == 1)
@@ -607,9 +618,10 @@ void mult_rows(int a[9] , int r)
 	}
 	text_sl("Product = ");
 	numout(prod);
+	return prod;
 }
 
-void mult_diagonals(int a[9] , int d)
+float mult_diagonals(float a[9] , int d)
 {
 	int prod = 0;
 	if (d == 1) 
@@ -622,11 +634,16 @@ void mult_diagonals(int a[9] , int d)
 	}
 	text_sl("Product = ");
 	numout(prod);
+	return prod;
 }
 
-void numtmatrix(int a[9] , int r)
+float div_columns(float a[9] , int c);
+float div_rows(float a[9] , int r);
+float div_diagonals(float a[9] , int d);
+
+float numtmatrix(float a[9] , int r)
 {
-	int c[9];
+	float c[9];
 	c[0] = a[0] * r;
 	c[1] = a[1] * r;
 	c[2] = a[2] * r;
@@ -638,11 +655,12 @@ void numtmatrix(int a[9] , int r)
 	c[8] = a[8] * r;
 	text("Result = ");
 	board(c);
+	return c[9];
 }
 
-void matrix_add(int A[9] , int B[9])
+float matrix_add(float A[9] , float B[9])
 {
-	int C[9];
+	float C[9];
 	C[0] = A[0] + B[0];
 	C[1] = A[1] + B[1];
 	C[2] = A[2] + B[2];
@@ -654,11 +672,12 @@ void matrix_add(int A[9] , int B[9])
 	C[8] = A[8] + B[8];
 	text("Result = ");
 	board(C);
+	return C[9];
 }
 
-void matrix_sub(int A[9] , int B[9])
+float matrix_sub(float A[9] , float B[9])
 {
-	int C[9];
+	float C[9];
 	C[0] = A[0] - B[0];
 	C[1] = A[1] - B[1];
 	C[2] = A[2] - B[2];
@@ -670,11 +689,12 @@ void matrix_sub(int A[9] , int B[9])
 	C[8] = A[8] - B[8];
 	text("Result = ");
 	board(C);
+	return C[9];
 }
 
-void matrix_mult(int A[9] , int B[9])
+float matrix_mult(float A[9] , float B[9])
 {
-	int C[9];
+	float C[9];
 	C[0] = ((A[8] * B[0]) + (A[7] * B[0]) + (A[6] * B[0]));
 	C[1] = ((A[5] * B[1]) + (A[4] * B[1]) + (A[3] * B[1]));
 	C[2] = ((A[2] * B[2]) + (A[1] * B[2]) + (A[0] * B[2]));
@@ -686,4 +706,5 @@ void matrix_mult(int A[9] , int B[9])
 	C[8] = ((A[2] * B[8]) + (A[1] * B[8]) + (A[0] * B[8]));
 	text("Result =");
 	board(C);
+	return C[9];
 }
