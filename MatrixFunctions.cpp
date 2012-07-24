@@ -637,9 +637,60 @@ float mult_diagonals(float a[9] , int d)
 	return prod;
 }
 
-float div_columns(float a[9] , int c);
-float div_rows(float a[9] , int r);
-float div_diagonals(float a[9] , int d);
+float div_columns(float a[9] , int c)
+{
+	float quot = 0;
+	if (c == 1)
+	{
+		quot = a[0] / a[3] / a[6];
+	}
+	if (c == 2)
+	{
+		quot = a[1] / a[4] / a[7];
+	}
+	if (c == 3)
+	{
+		quot = a[2] / a[5] / a[8];
+	}
+	text_sl("Quotient = ");
+	numout(quot);
+	return quot;
+}
+float div_rows(float a[9] , int r)
+{
+	float quot = 0;
+	if (r == 1)
+	{
+		quot = a[0] / a[1] / a[2];
+	}
+	if (r == 2)
+	{
+		quot = a[3] / a[4] / a[5];
+	}
+	if (r == 3)
+	{
+		quot = a[6] / a[7] / a[8];
+	}
+	text_sl("Quotient = ");
+	numout(quot);
+	return quot;
+}
+float div_diagonals(float a[9] , int d)
+{
+	float quot = 0;
+	if (d == 1) 
+	{
+		quot = a[0] / a[4] / a[8];
+	}
+	if (d == 2)
+	{
+		quot = a[2] / a[4] / a[6];
+	}
+	text_sl("Quotient = ");
+	numout(quot);
+	return quot;
+	
+}
 
 float numtmatrix(float a[9] , int r)
 {
