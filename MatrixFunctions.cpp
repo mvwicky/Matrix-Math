@@ -48,7 +48,26 @@ int main()
 	float h[9];
 	float i[9];
 	float j[9];
+	int test = 1;
+	string whichMatrix;
 	string choose[10] = {"a" , "b" , "c", "d" , "e", "f", "g", "h", "i", "j"};
+	int n = 0;
+	while (test == 1)
+	{
+		n = 0;
+		cin >> whichMatrix;
+		while (choose[n] != whichMatrix)
+		{
+			if (choose[n] == whichMatrix)
+			{
+				break;
+			}
+			text("Not it");
+			n = n + 1;
+		}
+		text("Done");
+	}
+	
 	initialize_matrix(a);
 	initialize_matrix(b);
 	initialize_matrix(c);
