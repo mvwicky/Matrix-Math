@@ -2,6 +2,9 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
+#include <math.h>
+#include <cstdlib>
 
 using namespace std;
 
@@ -18,6 +21,16 @@ float muliplication(float number1 , float number2);
 float division(float number1 , float number2);
 float exponentation(float base , float power);
 float formulas(int form);
+float A_Tri (float triHeight , float triBase);
+float P_Tri (float triSide1 , float triSide2 , float triSide3);
+float A_Sqaure (float squareSide);
+float P_Sqaure (float squareSide);
+float A_Rec (float recSide1 , float recSide2);
+float P_Rec (float recSide1 , float recSide2);
+float A_Circle (float radius);
+float C_Circle (float radius);
+float A_NGon (float Number_Sides_NGon_A , float Length_Sides_NGon_A);
+float P_NGon (float Number_Sides_NGon_P , float Length_Sides_NGon_P);
 void assign_values(float a[9] , int s , float value);
 float adding_columns(float a[9] , int c);
 float adding_rows(float a[9] , int r);
@@ -51,36 +64,15 @@ int main()
 	float i[9];
 	float j[9];
 	int test = 1;
+	int swmatrix;
 	string whichMatrix;
-//	string choose[10] = {"a" , "b" , "c", "d" , "e", "f", "g", "h", "i", "j"};
-//	int n = 0;
+	//	string choose[10] = {"a" , "b" , "c", "d" , "e", "f", "g", "h", "i", "j"};
+	//	int n = 0;
 	while (test == 1)
 	{
-//		n = 0;
-//		cin >> whichMatrix;
-//		while (choose[n] != whichMatrix)
-//		{
-//			if (choose[n] == whichMatrix)
-//			{
-//				break;
-//			}
-//			text("Not it");
-//			n = n + 1;
-//		}
-//		text("Done");
-		matrixChoose("a");
-		matrixChoose("b");
-		matrixChoose("c");
-		matrixChoose("d");
-		matrixChoose("e");
-		matrixChoose("f");
-		matrixChoose("g");
-		matrixChoose("h");
-		matrixChoose("i");
-		matrixChoose("j");
-		break;
+		cin >> swmatrix;
 	}
-/*	
+	/*	
 	initialize_matrix(a);
 	initialize_matrix(b);
 	initialize_matrix(c);
@@ -103,356 +95,356 @@ int main()
 	int wmath;
 	while (start_over == 1)
 	{
-		text("There are 10 matrices in memory");
-		text("They are indexed from 0-9");
-		text("1: Matrix Edit Mode");
-		text("2: Matrix Math Mode");
-		text("3: Arithmetic/Formula Mode");
-		
-		cin >>mmode;
-		spa();
-		if (mmode == 1)
-		{
-			text("Matrix Edit Mode");
-			spa();
-			while (stillin == 1)
-			{
-				sinmatrix = 1;
-				text("Press the Number for what matrix will be edited. Indexed from 0-9");
-				cin >>wmatrix;
-				spa();
-				if (wmatrix == 0)
-				{
-					while (sinmatrix == 1)
-					{
-						text("Matrix 0 selected");
-						text("Spaces are indexed from 0-8");
-						cin >> wspace;
-						spa();
-						text("Value?");
-						cin >> value;
-						assign_values(a , wspace , value);
-						spa();
-						text("Show matrix?");
-						cin >> showboard;
-						if (showboard == 1)
-						{
-							board(a);
-						}
-						text("Stay in matrix 0?");
-						cin >> sinmatrix;
-					}
-					
-				}
-				if (wmatrix == 1)
-				{
-					while (sinmatrix == 1)
-					{
-						text("Matrix 1 selected");
-						text("Spaces are indexed from 0-8");
-						cin >> wspace;
-						spa();
-						text("Value?");
-						cin >> value;
-						assign_values(b , wspace , value);
-						spa();
-						text("Show matrix?");
-						cin >> showboard;
-						if (showboard == 1)
-						{
-							board(b);
-						}
-						text("Stay in matrix 1?");
-						cin >> sinmatrix;
-					}	
-				}
-				if (wmatrix == 2)
-				{
-					while (sinmatrix == 1)
-					{
-						text("Matrix 2 selected");
-						text("Spaces are indexed from 0-8");
-						cin >> wspace;
-						spa();
-						text("Value?");
-						cin >> value;
-						assign_values(c , wspace , value);
-						spa();
-						text("Show matrix?");
-						cin >> showboard;
-						if (showboard == 1)
-						{
-							board(c);
-						}
-						text("Stay in matrix 2?");
-						cin >> sinmatrix;
-					}
-				}
-				if (wmatrix == 3)
-				{
-					while (sinmatrix == 1)
-					{
-						text("Matrix 3 selected");
-						text("Spaces are indexed from 0-8");
-						cin >> wspace;
-						spa();
-						text("Value?");
-						cin >> value;
-						assign_values(d , wspace , value);
-						spa();
-						text("Show matrix?");
-						cin >> showboard;
-						if (showboard == 1)
-						{
-							board(d);
-						}
-						text("Stay in matrix 3?");
-						cin >> sinmatrix;
-					}
-				}
-				if (wmatrix == 4)
-				{
-					while (sinmatrix == 1)
-					{
-						text("Matrix 4 selected");
-						text("Spaces are indexed from 0-8");
-						cin >> wspace;
-						spa();
-						text("Value?");
-						cin >> value;
-						assign_values(e , wspace , value);
-						spa();
-						text("Show matrix?");
-						cin >> showboard;
-						if (showboard == 1)
-						{
-							board(e);
-						}
-						text("Stay in matrix 4?");
-						cin >> sinmatrix;
-					}
-				}
-				if (wmatrix == 5)
-				{
-					while (sinmatrix == 1)
-					{
-						text("Matrix 5 selected");
-						text("Spaces are indexed from 0-8");
-						cin >> wspace;
-						spa();
-						text("Value?");
-						cin >> value;
-						assign_values(f , wspace , value);
-						spa();
-						text("Show matrix?");
-						cin >> showboard;
-						if (showboard == 1)
-						{
-							board(f);
-						}
-						text("Stay in matrix 5?");
-						cin >> sinmatrix;
-					}
-				}
-				if (wmatrix == 6)
-				{
-					while (sinmatrix == 1)
-					{
-						text("Matrix 6 selected");
-						text("Spaces are indexed from 0-8");
-						cin >> wspace;
-						spa();
-						text("Value?");
-						cin >> value;
-						assign_values(g , wspace , value);
-						spa();
-						text("Show matrix?");
-						cin >> showboard;
-						if (showboard == 1)
-						{
-							board(g);
-						}
-						text("Stay in matrix 6?");
-						cin >> sinmatrix;
-					}
-				}
-				if (wmatrix == 7)
-				{
-					while (sinmatrix == 1)
-					{
-						text("Matrix 7 selected");
-						text("Spaces are indexed from 0-8");
-						cin >> wspace;
-						spa();
-						text("Value?");
-						cin >> value;
-						assign_values(h , wspace , value);
-						spa();
-						text("Show matrix?");
-						cin >> showboard;
-						if (showboard == 1)
-						{
-							board(h);
-						}
-						text("Stay in matrix 7?");
-						cin >> sinmatrix;
-					}
-				}
-				if (wmatrix == 8)
-				{
-					while (sinmatrix == 1)
-					{
-						text("Matrix 8 selected");
-						text("Spaces are indexed from 0-8");
-						cin >> wspace;
-						spa();
-						text("Value?");
-						cin >> value;
-						assign_values(i , wspace , value);
-						spa();
-						text("Show matrix?");
-						cin >> showboard;
-						if (showboard == 1)
-						{
-							board(i);
-						}
-						text("Stay in matrix 8?");
-						cin >> sinmatrix;
-					}
-				}
-				if (wmatrix == 9)
-				{
-					while (sinmatrix == 1)
-					{
-						text("Matrix 10 selected");
-						text("Spaces are indexed from 0-8");
-						cin >> wspace;
-						spa();
-						text("Value?");
-						cin >> value;
-						assign_values(j , wspace , value);
-						spa();
-						text("Show matrix?");
-						cin >> showboard;
-						if (showboard == 1)
-						{
-							board(j);
-						}
-						text("Stay in matrix 9?");
-						cin >> sinmatrix;
-					}
-				}
-				text("Stay in Matrix Edit Mode?");
-				cin >> stillin;
-			}
-		}
-		if (mmode == 2)
-		{
-			stillin = 1;
-			while (stillin == 1)
-			{
-				text("Matrix Math Mode");
-				spa();
-				text("1: Column Operations");
-				text("2: Row Operations");
-				text("3: Diagonal Operations");
-				text("4: Matrix Operations");
-				cin >> wop;
-				spa();
-				if (wop == 1)
-				{
-					text("1: Add");
-					text("2: Subtract");
-					text("3: Multiply");
-					text("4: Divide");
-					cin >> wmath;
-					spa();
-					if (wmath == 1)
-					{
-						
-					}
-					if (wmath == 2)
-					{
-						
-					}
-					if (wmath == 3)
-					{
-						
-					}
-					if (wmath == 4)
-					{
-						
-					}
-				}
-				if (wop == 2)
-				{
-					text("1: Add");
-					text("2: Subtract");
-					text("3: Multiply");
-					text("4: Divide");
-					cin >> wmath;
-					spa();
-					if (wmath == 1)
-					{
-						
-					}
-					if (wmath == 2)
-					{
-						
-					}
-					if (wmath == 3)
-					{
-						
-					}
-					if (wmath == 4)
-					{
-						
-					}
-				}
-				if (wop == 3)
-				{
-					text("1: Add");
-					text("2: Subtract");
-					text("3: Multiply");
-					text("4: Divide");
-					cin >> wmath;
-					spa();
-					if (wmath == 1)
-					{
-						
-					}
-					if (wmath == 2)
-					{
-						
-					}
-					if (wmath == 3)
-					{
-						
-					}
-					if (wmath == 4)
-					{
-						
-					}
-				}
-				if (wop == 4)
-				{
-					text("1: Add Two Matricies");
-					text("2: Subtract Two Matricies");
-					text("3: Multiply a Number Through a Matrix");
-					text("4: Mulitpy Two Matricies");
-					cin >> wmath;
-					spa();
-					
-				}
-				text("Stay in Matrix Math Mode?");
-				cin >> stillin;
-			}
-			
-		}
-		if (mmode == 3)
-		{
-			text("Arithmetic/Formula Mode");
-		}
+	text("There are 10 matrices in memory");
+	text("They are indexed from 0-9");
+	text("1: Matrix Edit Mode");
+	text("2: Matrix Math Mode");
+	text("3: Arithmetic/Formula Mode");
+	
+	cin >>mmode;
+	spa();
+	if (mmode == 1)
+	{
+	text("Matrix Edit Mode");
+	spa();
+	while (stillin == 1)
+	{
+	sinmatrix = 1;
+	text("Press the Number for what matrix will be edited. Indexed from 0-9");
+	cin >>wmatrix;
+	spa();
+	if (wmatrix == 0)
+	{
+	while (sinmatrix == 1)
+	{
+	text("Matrix 0 selected");
+	text("Spaces are indexed from 0-8");
+	cin >> wspace;
+	spa();
+	text("Value?");
+	cin >> value;
+	assign_values(a , wspace , value);
+	spa();
+	text("Show matrix?");
+	cin >> showboard;
+	if (showboard == 1)
+	{
+	board(a);
+	}
+	text("Stay in matrix 0?");
+	cin >> sinmatrix;
+	}
+	
+	}
+	if (wmatrix == 1)
+	{
+	while (sinmatrix == 1)
+	{
+	text("Matrix 1 selected");
+	text("Spaces are indexed from 0-8");
+	cin >> wspace;
+	spa();
+	text("Value?");
+	cin >> value;
+	assign_values(b , wspace , value);
+	spa();
+	text("Show matrix?");
+	cin >> showboard;
+	if (showboard == 1)
+	{
+	board(b);
+	}
+	text("Stay in matrix 1?");
+	cin >> sinmatrix;
+	}	
+	}
+	if (wmatrix == 2)
+	{
+	while (sinmatrix == 1)
+	{
+	text("Matrix 2 selected");
+	text("Spaces are indexed from 0-8");
+	cin >> wspace;
+	spa();
+	text("Value?");
+	cin >> value;
+	assign_values(c , wspace , value);
+	spa();
+	text("Show matrix?");
+	cin >> showboard;
+	if (showboard == 1)
+	{
+	board(c);
+	}
+	text("Stay in matrix 2?");
+	cin >> sinmatrix;
+	}
+	}
+	if (wmatrix == 3)
+	{
+	while (sinmatrix == 1)
+	{
+	text("Matrix 3 selected");
+	text("Spaces are indexed from 0-8");
+	cin >> wspace;
+	spa();
+	text("Value?");
+	cin >> value;
+	assign_values(d , wspace , value);
+	spa();
+	text("Show matrix?");
+	cin >> showboard;
+	if (showboard == 1)
+	{
+	board(d);
+	}
+	text("Stay in matrix 3?");
+	cin >> sinmatrix;
+	}
+	}
+	if (wmatrix == 4)
+	{
+	while (sinmatrix == 1)
+	{
+	text("Matrix 4 selected");
+	text("Spaces are indexed from 0-8");
+	cin >> wspace;
+	spa();
+	text("Value?");
+	cin >> value;
+	assign_values(e , wspace , value);
+	spa();
+	text("Show matrix?");
+	cin >> showboard;
+	if (showboard == 1)
+	{
+	board(e);
+	}
+	text("Stay in matrix 4?");
+	cin >> sinmatrix;
+	}
+	}
+	if (wmatrix == 5)
+	{
+	while (sinmatrix == 1)
+	{
+	text("Matrix 5 selected");
+	text("Spaces are indexed from 0-8");
+	cin >> wspace;
+	spa();
+	text("Value?");
+	cin >> value;
+	assign_values(f , wspace , value);
+	spa();
+	text("Show matrix?");
+	cin >> showboard;
+	if (showboard == 1)
+	{
+	board(f);
+	}
+	text("Stay in matrix 5?");
+	cin >> sinmatrix;
+	}
+	}
+	if (wmatrix == 6)
+	{
+	while (sinmatrix == 1)
+	{
+	text("Matrix 6 selected");
+	text("Spaces are indexed from 0-8");
+	cin >> wspace;
+	spa();
+	text("Value?");
+	cin >> value;
+	assign_values(g , wspace , value);
+	spa();
+	text("Show matrix?");
+	cin >> showboard;
+	if (showboard == 1)
+	{
+	board(g);
+	}
+	text("Stay in matrix 6?");
+	cin >> sinmatrix;
+	}
+	}
+	if (wmatrix == 7)
+	{
+	while (sinmatrix == 1)
+	{
+	text("Matrix 7 selected");
+	text("Spaces are indexed from 0-8");
+	cin >> wspace;
+	spa();
+	text("Value?");
+	cin >> value;
+	assign_values(h , wspace , value);
+	spa();
+	text("Show matrix?");
+	cin >> showboard;
+	if (showboard == 1)
+	{
+	board(h);
+	}
+	text("Stay in matrix 7?");
+	cin >> sinmatrix;
+	}
+	}
+	if (wmatrix == 8)
+	{
+	while (sinmatrix == 1)
+	{
+	text("Matrix 8 selected");
+	text("Spaces are indexed from 0-8");
+	cin >> wspace;
+	spa();
+	text("Value?");
+	cin >> value;
+	assign_values(i , wspace , value);
+	spa();
+	text("Show matrix?");
+	cin >> showboard;
+	if (showboard == 1)
+	{
+	board(i);
+	}
+	text("Stay in matrix 8?");
+	cin >> sinmatrix;
+	}
+	}
+	if (wmatrix == 9)
+	{
+	while (sinmatrix == 1)
+	{
+	text("Matrix 10 selected");
+	text("Spaces are indexed from 0-8");
+	cin >> wspace;
+	spa();
+	text("Value?");
+	cin >> value;
+	assign_values(j , wspace , value);
+	spa();
+	text("Show matrix?");
+	cin >> showboard;
+	if (showboard == 1)
+	{
+	board(j);
+	}
+	text("Stay in matrix 9?");
+	cin >> sinmatrix;
+	}
+	}
+	text("Stay in Matrix Edit Mode?");
+	cin >> stillin;
+	}
+	}
+	if (mmode == 2)
+	{
+	stillin = 1;
+	while (stillin == 1)
+	{
+	text("Matrix Math Mode");
+	spa();
+	text("1: Column Operations");
+	text("2: Row Operations");
+	text("3: Diagonal Operations");
+	text("4: Matrix Operations");
+	cin >> wop;
+	spa();
+	if (wop == 1)
+	{
+	text("1: Add");
+	text("2: Subtract");
+	text("3: Multiply");
+	text("4: Divide");
+	cin >> wmath;
+	spa();
+	if (wmath == 1)
+	{
+	
+	}
+	if (wmath == 2)
+	{
+	
+	}
+	if (wmath == 3)
+	{
+	
+	}
+	if (wmath == 4)
+	{
+	
+	}
+	}
+	if (wop == 2)
+	{
+	text("1: Add");
+	text("2: Subtract");
+	text("3: Multiply");
+	text("4: Divide");
+	cin >> wmath;
+	spa();
+	if (wmath == 1)
+	{
+	
+	}
+	if (wmath == 2)
+	{
+	
+	}
+	if (wmath == 3)
+	{
+	
+	}
+	if (wmath == 4)
+	{
+	
+	}
+	}
+	if (wop == 3)
+	{
+	text("1: Add");
+	text("2: Subtract");
+	text("3: Multiply");
+	text("4: Divide");
+	cin >> wmath;
+	spa();
+	if (wmath == 1)
+	{
+	
+	}
+	if (wmath == 2)
+	{
+	
+	}
+	if (wmath == 3)
+	{
+	
+	}
+	if (wmath == 4)
+	{
+	
+	}
+	}
+	if (wop == 4)
+	{
+	text("1: Add Two Matricies");
+	text("2: Subtract Two Matricies");
+	text("3: Multiply a Number Through a Matrix");
+	text("4: Mulitpy Two Matricies");
+	cin >> wmath;
+	spa();
+	
+	}
+	text("Stay in Matrix Math Mode?");
+	cin >> stillin;
+	}
+	
+	}
+	if (mmode == 3)
+	{
+	text("Arithmetic/Formula Mode");
+	}
 	}
 	*/
 	return 0;
@@ -529,6 +521,82 @@ float division(float number1 , float number2)
 	result = number1 / number2;
 	cout << "Quotient = " << result << endl;
 	return result;
+}
+
+float exponentation(float base , float power)
+{
+	
+}
+float formulas(int form)
+{
+	
+}
+float A_Tri (float triHeight , float triBase)
+{
+	
+}
+float P_Tri (float triSide1 , float triSide2 , float triSide3)
+{
+	int Valid_Triangle;
+	float result;
+	if (triSide1 + triSide2 < triSide3)
+	{
+		Valid_Triangle = 0;
+	}
+	if (triSide2 + triSide3 < triSide1)
+	{
+		Valid_Triangle = 0;
+	}
+	if (triSide1 + triSide3 < triSide2)
+	{
+		Valid_Triangle = 0;
+	}
+	if (triSide1 + triSide2 > triSide3 && triSide2 + triSide3 > triSide1 && triSide1 + triSide3 > triSide2)
+	{
+		Valid_Triangle = 1;
+	}
+	if (Valid_Triangle == 0)
+	{
+		cout << "Sorry, that is not a valid triangle" << endl;
+	}
+	if (Valid_Triangle == 1)
+	{
+		result = triSide1 + triSide2 + triSide3;
+		cout << "The perimeter of the triangle is: " << result << endl;
+	}
+	return result;
+}
+float A_Sqaure (float squareSide)
+{
+	
+}
+float P_Sqaure (float squareSide)
+{
+	
+}
+float A_Rec (float recSide1 , float recSide2)
+{
+	
+}
+float P_Rec (float recSide1 , float recSide2)
+{
+	
+}
+float A_Circle (float radius)
+{
+	
+}
+float C_Circle (float radius)
+{
+	
+}
+float A_NGon (float Number_Sides_NGon_A , float Length_Sides_NGon_A)
+{
+	
+}
+float P_NGon (float Number_Sides_NGon_P , float Length_Sides_NGon_P)
+{
+	
 }
 
 void assign_values(float a[9] , int s , float value)
