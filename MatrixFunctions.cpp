@@ -8,6 +8,7 @@ using namespace std;
 float board(float a[9]);
 void text (string words);
 void text_sl (string words);
+void spa();
 void numout (float num);
 void initialize_matrix(float a[9]);
 float addition(float number1 , float number2); 
@@ -36,6 +37,7 @@ float matrix_mult(float A[9] , float B[9]);
 
 int main() 
 {
+	
 	float a[9];
 	float b[9];
 	float c[9];
@@ -46,6 +48,7 @@ int main()
 	float h[9];
 	float i[9];
 	float j[9];
+	string choose[10] = {"a" , "b" , "c", "d" , "e", "f", "g", "h", "i", "j"};
 	initialize_matrix(a);
 	initialize_matrix(b);
 	initialize_matrix(c);
@@ -75,17 +78,17 @@ int main()
 		text("3: Arithmetic/Formula Mode");
 		
 		cin >>mmode;
-		text("");
+		spa();
 		if (mmode == 1)
 		{
 			text("Matrix Edit Mode");
-			text("");
+			spa();
 			while (stillin == 1)
 			{
 				sinmatrix = 1;
 				text("Press the Number for what matrix will be edited. Indexed from 0-9");
 				cin >>wmatrix;
-				text("");
+				spa();
 				if (wmatrix == 0)
 				{
 					while (sinmatrix == 1)
@@ -93,11 +96,11 @@ int main()
 						text("Matrix 0 selected");
 						text("Spaces are indexed from 0-8");
 						cin >> wspace;
-						text("");
+						spa();
 						text("Value?");
 						cin >> value;
 						assign_values(a , wspace , value);
-						text("");
+						spa();
 						text("Show matrix?");
 						cin >> showboard;
 						if (showboard == 1)
@@ -116,11 +119,11 @@ int main()
 						text("Matrix 1 selected");
 						text("Spaces are indexed from 0-8");
 						cin >> wspace;
-						text("");
+						spa();
 						text("Value?");
 						cin >> value;
 						assign_values(b , wspace , value);
-						text("");
+						spa();
 						text("Show matrix?");
 						cin >> showboard;
 						if (showboard == 1)
@@ -138,11 +141,11 @@ int main()
 						text("Matrix 2 selected");
 						text("Spaces are indexed from 0-8");
 						cin >> wspace;
-						text("");
+						spa();
 						text("Value?");
 						cin >> value;
 						assign_values(c , wspace , value);
-						text("");
+						spa();
 						text("Show matrix?");
 						cin >> showboard;
 						if (showboard == 1)
@@ -160,11 +163,11 @@ int main()
 						text("Matrix 3 selected");
 						text("Spaces are indexed from 0-8");
 						cin >> wspace;
-						text("");
+						spa();
 						text("Value?");
 						cin >> value;
 						assign_values(d , wspace , value);
-						text("");
+						spa();
 						text("Show matrix?");
 						cin >> showboard;
 						if (showboard == 1)
@@ -182,11 +185,11 @@ int main()
 						text("Matrix 4 selected");
 						text("Spaces are indexed from 0-8");
 						cin >> wspace;
-						text("");
+						spa();
 						text("Value?");
 						cin >> value;
 						assign_values(e , wspace , value);
-						text("");
+						spa();
 						text("Show matrix?");
 						cin >> showboard;
 						if (showboard == 1)
@@ -204,11 +207,11 @@ int main()
 						text("Matrix 5 selected");
 						text("Spaces are indexed from 0-8");
 						cin >> wspace;
-						text("");
+						spa();
 						text("Value?");
 						cin >> value;
 						assign_values(f , wspace , value);
-						text("");
+						spa();
 						text("Show matrix?");
 						cin >> showboard;
 						if (showboard == 1)
@@ -226,11 +229,11 @@ int main()
 						text("Matrix 6 selected");
 						text("Spaces are indexed from 0-8");
 						cin >> wspace;
-						text("");
+						spa();
 						text("Value?");
 						cin >> value;
 						assign_values(g , wspace , value);
-						text("");
+						spa();
 						text("Show matrix?");
 						cin >> showboard;
 						if (showboard == 1)
@@ -248,11 +251,11 @@ int main()
 						text("Matrix 7 selected");
 						text("Spaces are indexed from 0-8");
 						cin >> wspace;
-						text("");
+						spa();
 						text("Value?");
 						cin >> value;
 						assign_values(h , wspace , value);
-						text("");
+						spa();
 						text("Show matrix?");
 						cin >> showboard;
 						if (showboard == 1)
@@ -270,11 +273,11 @@ int main()
 						text("Matrix 8 selected");
 						text("Spaces are indexed from 0-8");
 						cin >> wspace;
-						text("");
+						spa();
 						text("Value?");
 						cin >> value;
 						assign_values(i , wspace , value);
-						text("");
+						spa();
 						text("Show matrix?");
 						cin >> showboard;
 						if (showboard == 1)
@@ -292,11 +295,11 @@ int main()
 						text("Matrix 10 selected");
 						text("Spaces are indexed from 0-8");
 						cin >> wspace;
-						text("");
+						spa();
 						text("Value?");
 						cin >> value;
 						assign_values(j , wspace , value);
-						text("");
+						spa();
 						text("Show matrix?");
 						cin >> showboard;
 						if (showboard == 1)
@@ -317,12 +320,13 @@ int main()
 			while (stillin == 1)
 			{
 				text("Matrix Math Mode");
-				text("");
+				spa();
 				text("1: Column Operations");
 				text("2: Row Operations");
 				text("3: Diagonal Operations");
+				text("4: Matrix Operations");
 				cin >> wop;
-				text("");
+				spa();
 				if (wop == 1)
 				{
 					text("1: Add");
@@ -330,7 +334,7 @@ int main()
 					text("3: Multiply");
 					text("4: Divide");
 					cin >> wmath;
-					text("");
+					spa();
 					if (wmath == 1)
 					{
 						
@@ -355,7 +359,7 @@ int main()
 					text("3: Multiply");
 					text("4: Divide");
 					cin >> wmath;
-					text("");
+					spa();
 					if (wmath == 1)
 					{
 						
@@ -380,7 +384,7 @@ int main()
 					text("3: Multiply");
 					text("4: Divide");
 					cin >> wmath;
-					text("");
+					spa();
 					if (wmath == 1)
 					{
 						
@@ -397,6 +401,16 @@ int main()
 					{
 						
 					}
+				}
+				if (wop == 4)
+				{
+					text("1: Add Two Matricies");
+					text("2: Subtract Two Matricies");
+					text("3: Multiply a Number Through a Matrix");
+					text("4: Mulitpy Two Matricies");
+					cin >> wmath;
+					spa();
+					
 				}
 				text("Stay in Matrix Math Mode?");
 				cin >> stillin;
@@ -421,6 +435,11 @@ void text(string words)
 void text_sl(string words)
 {
 	cout << words;
+}
+
+void spa()
+{
+	text("");
 }
 
 void numout(float num)
