@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 float board(float a[9]);
 void text (string words);
 void text_sl (string words);
@@ -34,6 +35,7 @@ float numtmatrix(float a[9] , float n);
 float matrix_add(float A[9] , float B[9]);
 float matrix_sub(float A[9] , float B[9]);
 float matrix_mult(float A[9] , float B[9]);
+string matrixChoose(string whichMatrix);
 
 int main() 
 {
@@ -50,24 +52,35 @@ int main()
 	float j[9];
 	int test = 1;
 	string whichMatrix;
-	string choose[10] = {"a" , "b" , "c", "d" , "e", "f", "g", "h", "i", "j"};
-	int n = 0;
+//	string choose[10] = {"a" , "b" , "c", "d" , "e", "f", "g", "h", "i", "j"};
+//	int n = 0;
 	while (test == 1)
 	{
-		n = 0;
-		cin >> whichMatrix;
-		while (choose[n] != whichMatrix)
-		{
-			if (choose[n] == whichMatrix)
-			{
-				break;
-			}
-			text("Not it");
-			n = n + 1;
-		}
-		text("Done");
+//		n = 0;
+//		cin >> whichMatrix;
+//		while (choose[n] != whichMatrix)
+//		{
+//			if (choose[n] == whichMatrix)
+//			{
+//				break;
+//			}
+//			text("Not it");
+//			n = n + 1;
+//		}
+//		text("Done");
+		matrixChoose("a");
+		matrixChoose("b");
+		matrixChoose("c");
+		matrixChoose("d");
+		matrixChoose("e");
+		matrixChoose("f");
+		matrixChoose("g");
+		matrixChoose("h");
+		matrixChoose("i");
+		matrixChoose("j");
+		break;
 	}
-	
+/*	
 	initialize_matrix(a);
 	initialize_matrix(b);
 	initialize_matrix(c);
@@ -441,6 +454,7 @@ int main()
 			text("Arithmetic/Formula Mode");
 		}
 	}
+	*/
 	return 0;
 	
 	
@@ -811,4 +825,29 @@ float matrix_mult(float A[9] , float B[9])
 	text("Result =");
 	board(C);
 	return C[9];
+}
+
+string matrixChoose(string whichMatrix)
+{
+	int n = 0;
+	string choose[10] = {"a" , "b" , "c", "d" , "e", "f", "g", "h", "i", "j"};
+	int matrixChosen = 0;
+	while (matrixChosen == 0)
+	{
+		while (choose[n] != whichMatrix)
+		{
+			if (choose[n] == whichMatrix) 
+			{
+				break;
+				break;
+			}
+			text("Not it");
+			n = n + 1;
+		}
+		matrixChosen = 1;
+		
+	}
+	text("Done");
+	return choose[n];
+	
 }
