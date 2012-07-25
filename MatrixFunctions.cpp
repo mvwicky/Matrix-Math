@@ -61,7 +61,7 @@ int main()
 	int mmode;
 	int wmatrix;
 	int wspace;
-	int value;
+	float value;
 	int sinmatrix = 1;
 	int showboard;
 	int wop;
@@ -343,6 +343,10 @@ int main()
 					{
 						
 					}
+					if (wmath == 4)
+					{
+						
+					}
 				}
 				if (wop == 2)
 				{
@@ -364,6 +368,10 @@ int main()
 					{
 						
 					}
+					if (wmath == 4)
+					{
+						
+					}
 				}
 				if (wop == 3)
 				{
@@ -382,6 +390,10 @@ int main()
 						
 					}
 					if (wmath == 3)
+					{
+						
+					}
+					if (wmath == 4)
 					{
 						
 					}
