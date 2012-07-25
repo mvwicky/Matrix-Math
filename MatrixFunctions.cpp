@@ -16,7 +16,7 @@ float muliplication(float number1 , float number2);
 float division(float number1 , float number2);
 float exponentation(float base , float power);
 float formulas(int form);
-void assign_values(float a[9] , int s , float v);
+void assign_values(float a[9] , int s , float value);
 float adding_columns(float a[9] , int c);
 float adding_rows(float a[9] , int r);
 float adding_diagonals(float a[9] , int d);
@@ -328,6 +328,7 @@ int main()
 					text("1: Add");
 					text("2: Subtract");
 					text("3: Multiply");
+					text("4: Divide");
 					cin >> wmath;
 					text("");
 					if (wmath == 1)
@@ -348,6 +349,7 @@ int main()
 					text("1: Add");
 					text("2: Subtract");
 					text("3: Multiply");
+					text("4: Divide");
 					cin >> wmath;
 					text("");
 					if (wmath == 1)
@@ -368,6 +370,7 @@ int main()
 					text("1: Add");
 					text("2: Subtract");
 					text("3: Multiply");
+					text("4: Divide");
 					cin >> wmath;
 					text("");
 					if (wmath == 1)
@@ -464,9 +467,9 @@ float division(float number1 , float number2)
 	return result;
 }
 
-void assign_values(float a[9] , int s , float v)
+void assign_values(float a[9] , int s , float value)
 {
-	a[s] = v;
+	a[s] = value;
 }
 
 float adding_columns(float a[9] , int c)
