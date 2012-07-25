@@ -16,7 +16,7 @@ float muliplication(float number1 , float number2);
 float division(float number1 , float number2);
 float exponentation(float base , float power);
 float formulas(int form);
-void assign_values(float a[9] , int s , int v);
+void assign_values(float a[9] , int s , float v);
 float adding_columns(float a[9] , int c);
 float adding_rows(float a[9] , int r);
 float adding_diagonals(float a[9] , int d);
@@ -464,7 +464,7 @@ float division(float number1 , float number2)
 	return result;
 }
 
-void assign_values(float a[9] , int s , int v)
+void assign_values(float a[9] , int s , float v)
 {
 	a[s] = v;
 }
