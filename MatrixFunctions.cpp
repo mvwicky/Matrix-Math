@@ -448,11 +448,13 @@ int main()
 		
 			text("Arithmetic/Formula Mode");
 			int wform;
+			float variable1;
+			float variable2;
 			while (stayform == 1)
 			{
 				text("1: Addition");
 				text("2: Subtraction");
-				text("3: Multiplication"):
+				text("3: Multiplication");
 				text("4: Division");
 				text("5: Exponentation");
 				text("6: Area of a Triangle");
@@ -464,7 +466,85 @@ int main()
 				text("12: Circumference of a Circle");
 				text("13: Area of an N-Gon");
 				text("14: Perimeter of an N-Gon");
-				
+				cin >> wform;
+				spa();
+				if (wform == 1)
+				{
+					text("This adds two numbers together");
+					cin >> variable1;
+					cin >> variable2;
+					cout << addition(variable1 ,  variable2) << endl;
+					spa();
+				}
+				if (wform == 2)
+				{
+					text("The first input minus the second");
+					cin >> variable1;
+					cin >> variable2;
+					cout << subtraction(variable1 ,  variable2) << endl;
+					spa();
+				}
+				if (wform == 3)
+				{
+					text("This multiplies two numbers together");
+					cin >> variable1;
+					cin >> variable2;
+					cout << muliplication(variable1 ,  variable2) << endl;
+					spa();
+				}
+				if (wform == 4)
+				{
+					text("The first input divided by the second");
+					cin >> variable1;
+					cin >> variable2;
+					cout << division(variable1 , variable2) << endl;
+					spa();
+				}
+				if (wform == 5)
+				{
+					text("First input: Base");
+					text("Second input: Power");
+					cin >> variable1;
+					cin >> variable2;
+					cout << exponentation(variable1 , variable2) << endl;
+					spa();
+				}
+				if (wform == 6)
+				{
+					
+				}
+				if (wform == 7)
+				{
+					
+				}
+				if (wform == 8)
+				{
+					
+				}
+				if (wform == 9)
+				{
+					
+				}
+				if (wform == 10)
+				{
+					
+				}
+				if (wform == 11)
+				{
+					
+				}
+				if (wform == 12)
+				{
+					
+				}
+				if (wform == 13)
+				{
+					
+				}
+				if (wform == 14)
+				{
+					
+				}
 			}
 		}
 	}
