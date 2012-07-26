@@ -471,47 +471,64 @@ int main()
 				if (wform == 1)
 				{
 					text("This adds two numbers together");
+					text_sl("First input = ");
 					cin >> variable1;
+					text_sl("Second input = ");
 					cin >> variable2;
-					cout << addition(variable1 ,  variable2) << endl;
+					cout << "Sum = " << addition(variable1 ,  variable2) << endl;
 					spa();
 				}
 				if (wform == 2)
 				{
 					text("The first input minus the second");
+					text_sl("First input = ");
 					cin >> variable1;
+					text_sl("Second input = ");
 					cin >> variable2;
-					cout << subtraction(variable1 ,  variable2) << endl;
+					cout << "Difference = " << subtraction(variable1 ,  variable2) << endl;
 					spa();
 				}
 				if (wform == 3)
 				{
 					text("This multiplies two numbers together");
+					text_sl("First input = ");
 					cin >> variable1;
+					text_sl("Second input = ");
 					cin >> variable2;
-					cout << muliplication(variable1 ,  variable2) << endl;
+					cout << "Product = " << muliplication(variable1 ,  variable2) << endl;
 					spa();
 				}
 				if (wform == 4)
 				{
 					text("The first input divided by the second");
+					text_sl("First input = ");
 					cin >> variable1;
+					text_sl("Second input = ");
 					cin >> variable2;
-					cout << division(variable1 , variable2) << endl;
+					cout << "Quotient = " << division(variable1 , variable2) << endl;
 					spa();
 				}
 				if (wform == 5)
 				{
 					text("First input: Base");
 					text("Second input: Power");
+					text_sl("Base = ");
 					cin >> variable1;
+					text_sl("Power = ");
 					cin >> variable2;
-					cout << exponentation(variable1 , variable2) << endl;
+					cout << "Answer = " << exponentation(variable1 , variable2) << endl;
 					spa();
 				}
 				if (wform == 6)
 				{
-					
+					text("First input: Base");
+					text("Second input: Height");
+					text_sl("Base = ");
+					cin >> variable1;
+					text_sl("Height = ");
+					cin >> variable2;
+					cout << "Area = " << A_Tri(variable1 , variable2) << endl;
+					spa();
 				}
 				if (wform == 7)
 				{
@@ -596,7 +613,7 @@ float addition(float number1 , float number2)
 {
 	float result;
 	result = number1 + number2;
-	cout << "Sum = " << result << endl;
+//	cout << "Sum = " << result << endl;
 	return result;
 }
 
@@ -604,7 +621,7 @@ float subtraction(float number1 , float number2)
 {
 	float result;
 	result = number1 - number2;
-	cout << "Difference = " << result << endl;
+//	cout << "Difference = " << result << endl;
 	return result;
 }
 
@@ -612,7 +629,7 @@ float muliplication(float number1 , float number2)
 {
 	float result;
 	result = number1 * number2;
-	cout << "Product = " << result << endl;
+//	cout << "Product = " << result << endl;
 	return result;
 }
 
@@ -620,7 +637,7 @@ float division(float number1 , float number2)
 {
 	float result;
 	result = number1 / number2;
-	cout << "Quotient = " << result << endl;
+//	cout << "Quotient = " << result << endl;
 	return result;
 }
 
@@ -633,7 +650,7 @@ float exponentation(float base , float power)
 float A_Tri (float triHeight , float triBase)
 {
 	float area;
-	area = triHeight * triBase;
+	area = (triHeight * triBase) / 2;
 	return area;
 }
 float P_Tri (float triSide1 , float triSide2 , float triSide3)
@@ -655,10 +672,6 @@ float P_Tri (float triSide1 , float triSide2 , float triSide3)
 	if (triSide1 + triSide2 > triSide3 && triSide2 + triSide3 > triSide1 && triSide1 + triSide3 > triSide2)
 	{
 		Valid_Triangle = 1;
-	}
-	if (Valid_Triangle == 0)
-	{
-		cout << "Sorry, that is not a valid triangle" << endl;
 	}
 	if (Valid_Triangle == 1)
 	{
