@@ -463,7 +463,7 @@ int main()
 				text("8: Area of a Square");
 				text("9: Perimeter of a Square");
 				text("10: Area of a Rectangle");
-				text("11: Perimeter of a Rectangle")
+				text("11: Perimeter of a Rectangle");
 				text("12: Area of a Circle");
 				text("13: Circumference of a Circle");
 				text("14: Area of an N-Gon");
