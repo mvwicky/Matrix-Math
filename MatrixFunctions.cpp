@@ -5,6 +5,7 @@
 #include <cmath>
 #include <math.h>
 #include <cstdlib>
+#include <time.h>
 
 #define PI 3.141592
 
@@ -50,7 +51,8 @@ float numtmatrix(float a[9] , float n);
 float matrix_add(float A[9] , float B[9]);
 float matrix_sub(float A[9] , float B[9]);
 float matrix_mult(float A[9] , float B[9]);
-string matrixChoose(string whichMatrix);
+string matrixChooseS(string whichMatrix);
+float matrixChooseF(float whichMatrix);
 
 int main() 
 {
@@ -65,14 +67,18 @@ int main()
 	float h[9];
 	float i[9];
 	float j[9];
-	int test = 0;
+	int test = 1;
 	int swmatrix;
-	string whichMatrix;
+	string whichMatrixS;
+	float whichMatrixF;
 	//	string choose[10] = {"a" , "b" , "c", "d" , "e", "f", "g", "h", "i", "j"};
 	//	int n = 0;
 	while (test == 1)
 	{
-		cin >> swmatrix;
+		cin >> whichMatrixS;
+		matrixChooseS(whichMatrixS);
+		cin >> whichMatrixF;
+		matrixChooseF(whichMatrixF);
 	}	
 	initialize_matrix(a);
 	initialize_matrix(b);
@@ -453,6 +459,7 @@ int main()
 			float variable3;
 			while (stayform == 1)
 			{
+				int toom = time(NULL);
 				text("1: Addition");
 				text("2: Subtraction");
 				text("3: Multiplication");
@@ -480,6 +487,7 @@ int main()
 					spa();
 					cout << "Sum = " << addition(variable1 ,  variable2) << endl;
 					spa();
+					
 				}
 				if (wform == 2)
 				{
@@ -491,6 +499,7 @@ int main()
 					spa();
 					cout << "Difference = " << subtraction(variable1 ,  variable2) << endl;
 					spa();
+					
 				}
 				if (wform == 3)
 				{
@@ -502,6 +511,7 @@ int main()
 					spa();
 					cout << "Product = " << muliplication(variable1 ,  variable2) << endl;
 					spa();
+					
 				}
 				if (wform == 4)
 				{
@@ -513,11 +523,11 @@ int main()
 					spa();
 					cout << "Quotient = " << division(variable1 , variable2) << endl;
 					spa();
+					
 				}
 				if (wform == 5)
 				{
-					text("First input: Base");
-					text("Second input: Power");
+					text("Two inputs");
 					text_sl("Base = ");
 					cin >> variable1;
 					text_sl("Power = ");
@@ -525,11 +535,11 @@ int main()
 					spa();
 					cout << "Answer = " << exponentation(variable1 , variable2) << endl;
 					spa();
+					
 				}
 				if (wform == 6)
 				{
-					text("First input: Base");
-					text("Second input: Height");
+					text("Two inputs");
 					text_sl("Base = ");
 					cin >> variable1;
 					text_sl("Height = ");
@@ -537,11 +547,12 @@ int main()
 					spa();
 					cout << "Area = " << A_Tri(variable1 , variable2) << endl;
 					spa();
+					
+					
 				}
 				if (wform == 7)
 				{
 					text("Three inputs");
-					text("One for each side");
 					text_sl("1st side = ");
 					cin >> variable1;
 					text_sl("2nd side = ");
@@ -559,6 +570,7 @@ int main()
 						cout << "Perimeter = " << P_Tri(variable1 , variable2 , variable3) << endl;
 					}
 					spa();
+					
 				}
 				if (wform == 8)
 				{
@@ -568,6 +580,7 @@ int main()
 					spa();
 					cout << "Area = " << A_Sqaure(variable1) << endl;
 					spa();
+					
 				}
 				if (wform == 9)
 				{
@@ -577,6 +590,7 @@ int main()
 					spa();
 					cout << "Perimeter = " << A_Sqaure(variable1) << endl;
 					spa();
+					
 				}
 				if (wform == 10)
 				{
@@ -588,6 +602,7 @@ int main()
 					spa();
 					cout << "Area = " << A_Rec(variable1 , variable2) << endl;
 					spa();
+					
 				}
 				if (wform == 11)
 				{
@@ -599,6 +614,7 @@ int main()
 					spa();
 					cout << "Perimeter = " << P_Rec(variable1 , variable2) << endl;
 					spa();
+					
 				}
 				if (wform == 12)
 				{
@@ -609,6 +625,7 @@ int main()
 					cout << "Area = " << A_Circle(variable1) << endl;
 					spa();
 					
+					
 				}
 				if (wform == 13)
 				{
@@ -618,29 +635,33 @@ int main()
 					spa();
 					cout << "Circumference = " << C_Circle(variable1) << endl;
 					spa();
+					
 				}
 				if (wform == 14)
 				{
 					text("Two inputs");
-					text_sl("Number of sides");
+					text_sl("Number of sides = ");
 					cin >> variable1;
-					text_sl("Length of sides");
+					text_sl("Length of sides = ");
 					cin >> variable2;
 					spa();
 					cout << "Area = " << A_NGon(variable1 , variable2) << endl;
 					spa();
+					
 				}
 				if (wform == 15)
 				{
 					text("Two inputs");
-					text_sl("Number of sides");
+					text_sl("Number of sides = ");
 					cin >> variable1;
-					text_sl("Length of sides");
+					text_sl("Length of sides = ");
 					cin >> variable2;
 					spa();
 					cout << "Perimeter = " << P_NGon(variable1 , variable2) << endl;
 					spa();
+					
 				}
+				
 			}
 		}
 	}
@@ -649,7 +670,7 @@ int main()
 	
 }
 
-void text(string words)
+__inline void text(string words)
 {
 	cout << words << endl;
 }
@@ -1111,7 +1132,7 @@ float matrix_mult(float A[9] , float B[9])
 	return C[9];
 }
 
-string matrixChoose(string whichMatrix)
+string matrixChooseS(string whichMatrix)
 {
 	int n = 0;
 	string choose[10] = {"a" , "b" , "c", "d" , "e", "f", "g", "h", "i", "j"};
@@ -1133,5 +1154,28 @@ string matrixChoose(string whichMatrix)
 	}
 	text("Done");
 	return choose[n];
-	
+}
+
+float matrixChooseF(float whichMatrix)
+{
+	int n = 0;
+	float choose[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9 ,10};
+	int matrixChosen = 0;
+	while (matrixChosen == 0)
+	{
+		while (choose[n] != whichMatrix)
+		{
+			if (choose[n] == whichMatrix) 
+			{
+				break;
+				break;
+			}
+			text("Not it");
+			n = n + 1;
+		}
+		matrixChosen = 1;
+		
+	}
+	text("Done");
+	return choose[n];
 }
