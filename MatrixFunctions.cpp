@@ -11,7 +11,7 @@
 using namespace std;
 
 
-float board(float a[9]);
+void board(float a[9]);
 void text (string words);
 void text_sl (string words);
 void spa();
@@ -450,6 +450,7 @@ int main()
 			int wform;
 			float variable1;
 			float variable2;
+			float variable3;
 			while (stayform == 1)
 			{
 				text("1: Addition");
@@ -532,7 +533,23 @@ int main()
 				}
 				if (wform == 7)
 				{
-					
+					text("Three inputs");
+					text("One for each side");
+					text_sl("1st side = ");
+					cin >> variable1;
+					text_sl("2nd side = ");
+					cin >> variable2;
+					text_sl("3rd side = ");
+					cin >> variable3;
+					P_Tri(variable1 , variable2 , variable3);
+					if (P_Tri(variable1 , variable2 , variable3) == 0)
+					{
+						text("Not a valid Triangle");
+					}
+					if (P_Tri(variable1 , variable2 , variable3) != 0)
+					{
+						cout << "Perimeter = " << P_Tri(variable1 , variable2 , variable3) << endl;
+					}
 				}
 				if (wform == 8)
 				{
@@ -590,7 +607,7 @@ void numout(float num)
 	cout << num << endl;
 }
 
-float board(float a[9])
+void board(float a[9])
 {
 	cout << "| " << a[0] << " | " << a[1] << " | " << a[2] << " |" << endl;
 	cout << "-------------" << endl;
@@ -655,8 +672,8 @@ float A_Tri (float triHeight , float triBase)
 }
 float P_Tri (float triSide1 , float triSide2 , float triSide3)
 {
-	int Valid_Triangle;
-	float perimeter;
+	float Valid_Triangle = 0;
+	float perimeter = 0;
 	if (triSide1 + triSide2 < triSide3)
 	{
 		Valid_Triangle = 0;
@@ -676,7 +693,6 @@ float P_Tri (float triSide1 , float triSide2 , float triSide3)
 	if (Valid_Triangle == 1)
 	{
 		perimeter = triSide1 + triSide2 + triSide3;
-		
 	}
 	if (Valid_Triangle == 1)
 	{
@@ -764,7 +780,7 @@ float adding_columns(float a[9] , int c)
 
 float adding_rows(float a[9] , int r)
 {
-	int sum = 0;
+	float sum = 0;
 	if (r == 1)
 	{
 		sum = a[0] + a[1] + a[2];
@@ -784,7 +800,7 @@ float adding_rows(float a[9] , int r)
 
 float adding_diagonals(float a[9] , int d)
 {
-	int sum = 0;
+	float sum = 0;
 	if (d == 1) 
 	{
 		sum = a[0] + a[4] + a[8];
@@ -800,7 +816,7 @@ float adding_diagonals(float a[9] , int d)
 
 float subtract_columns(float a[9] , int c)
 {
-	int diff = 0;
+	float diff = 0;
 	if (c == 1)
 	{
 		diff = a[0] - a[3] - a[6];
@@ -820,7 +836,7 @@ float subtract_columns(float a[9] , int c)
 
 float subtract_rows(float a[9] , int r)
 {
-	int diff = 0;
+	float diff = 0;
 	if (r == 1)
 	{
 		diff = a[0] - a[1] - a[2];
@@ -840,7 +856,7 @@ float subtract_rows(float a[9] , int r)
 
 float subtract_diagonals(float a[9] , int d)
 {
-	int diff = 0;
+	float diff = 0;
 	if (d == 1) 
 	{
 		diff = a[0] - a[4] - a[8];
@@ -856,7 +872,7 @@ float subtract_diagonals(float a[9] , int d)
 
 float mult_columns(float a[9] , int c)
 {
-	int prod = 0;
+	float prod = 0;
 	if (c == 1)
 	{
 		prod = a[0] * a[3] * a[6];
@@ -876,7 +892,7 @@ float mult_columns(float a[9] , int c)
 
 float mult_rows(float a[9] , int r)
 {
-	int prod = 0;
+	float prod = 0;
 	if (r == 1)
 	{
 		prod = a[0] * a[1] * a[2];
@@ -896,7 +912,7 @@ float mult_rows(float a[9] , int r)
 
 float mult_diagonals(float a[9] , int d)
 {
-	int prod = 0;
+	float prod = 0;
 	if (d == 1) 
 	{
 		prod = a[0] * a[4] * a[8];
