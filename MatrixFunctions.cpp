@@ -463,10 +463,11 @@ int main()
 				text("8: Area of a Square");
 				text("9: Perimeter of a Square");
 				text("10: Area of a Rectangle");
-				text("11: Area of a Circle");
-				text("12: Circumference of a Circle");
-				text("13: Area of an N-Gon");
-				text("14: Perimeter of an N-Gon");
+				text("11: Perimeter of a Rectangle")
+				text("12: Area of a Circle");
+				text("13: Circumference of a Circle");
+				text("14: Area of an N-Gon");
+				text("15: Perimeter of an N-Gon");
 				cin >> wform;
 				spa();
 				if (wform == 1)
@@ -476,6 +477,7 @@ int main()
 					cin >> variable1;
 					text_sl("Second input = ");
 					cin >> variable2;
+					spa();
 					cout << "Sum = " << addition(variable1 ,  variable2) << endl;
 					spa();
 				}
@@ -486,6 +488,7 @@ int main()
 					cin >> variable1;
 					text_sl("Second input = ");
 					cin >> variable2;
+					spa();
 					cout << "Difference = " << subtraction(variable1 ,  variable2) << endl;
 					spa();
 				}
@@ -496,6 +499,7 @@ int main()
 					cin >> variable1;
 					text_sl("Second input = ");
 					cin >> variable2;
+					spa();
 					cout << "Product = " << muliplication(variable1 ,  variable2) << endl;
 					spa();
 				}
@@ -506,6 +510,7 @@ int main()
 					cin >> variable1;
 					text_sl("Second input = ");
 					cin >> variable2;
+					spa();
 					cout << "Quotient = " << division(variable1 , variable2) << endl;
 					spa();
 				}
@@ -517,6 +522,7 @@ int main()
 					cin >> variable1;
 					text_sl("Power = ");
 					cin >> variable2;
+					spa();
 					cout << "Answer = " << exponentation(variable1 , variable2) << endl;
 					spa();
 				}
@@ -528,6 +534,7 @@ int main()
 					cin >> variable1;
 					text_sl("Height = ");
 					cin >> variable2;
+					spa();
 					cout << "Area = " << A_Tri(variable1 , variable2) << endl;
 					spa();
 				}
@@ -542,6 +549,7 @@ int main()
 					text_sl("3rd side = ");
 					cin >> variable3;
 					P_Tri(variable1 , variable2 , variable3);
+					spa();
 					if (P_Tri(variable1 , variable2 , variable3) == 0)
 					{
 						text("Not a valid Triangle");
@@ -550,34 +558,88 @@ int main()
 					{
 						cout << "Perimeter = " << P_Tri(variable1 , variable2 , variable3) << endl;
 					}
+					spa();
 				}
 				if (wform == 8)
 				{
-					
+					text("One input");
+					text_sl("Side length = ");
+					cin >> variable1;
+					spa();
+					cout << "Area = " << A_Sqaure(variable1) << endl;
+					spa();
 				}
 				if (wform == 9)
 				{
-					
+					text("One input");
+					text_sl("Side length = ");
+					cin >> variable1;
+					spa();
+					cout << "Perimeter = " << A_Sqaure(variable1) << endl;
+					spa();
 				}
 				if (wform == 10)
 				{
-					
+					text("Two inputs");
+					text_sl("Length = ");
+					cin >> variable1;
+					text_sl("Width = ");
+					cin >> variable2;
+					spa();
+					cout << "Area = " << A_Rec(variable1 , variable2) << endl;
+					spa();
 				}
 				if (wform == 11)
 				{
-					
+					text("Two inputs");
+					text_sl("Length = ");
+					cin >> variable1;
+					text_sl("Width = ");
+					cin >> variable2;
+					spa();
+					cout << "Perimeter = " << P_Rec(variable1 , variable2) << endl;
+					spa();
 				}
 				if (wform == 12)
 				{
+					text("One input");
+					text_sl("Radius = ");
+					cin >> variable1;
+					spa();
+					cout << "Area = " << A_Circle(variable1) << endl;
+					spa();
 					
 				}
 				if (wform == 13)
 				{
-					
+					text("One input");
+					text_sl("Radius = ");
+					cin >> variable1;
+					spa();
+					cout << "Circumference = " << C_Circle(variable1) << endl;
+					spa();
 				}
 				if (wform == 14)
 				{
-					
+					text("Two inputs");
+					text_sl("Number of sides");
+					cin >> variable1;
+					text_sl("Length of sides");
+					cin >> variable2;
+					spa();
+					cout << "Area = " << A_NGon(variable1 , variable2) << endl;
+					spa();
+				}
+				if (wform == 15)
+				{
+					text("Two inputs");
+					text_sl("Number of sides");
+					cin >> variable1;
+					text_sl("Length of sides");
+					cin >> variable2;
+					spa();
+					cout << "Perimeter = " << P_NGon(variable1 , variable2) << endl;
+					spa();
 				}
 			}
 		}
