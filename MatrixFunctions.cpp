@@ -8,6 +8,16 @@
 #include <time.h>
 
 #define PI 3.141592
+#define MATRICIES float a[9], float b[9], float c[9], float d[9], float e[9], float f[9], float g[9], float h[9], float i[9], float j[9]
+#define MCHOOSE a , b , c , d , e , f , g , h , i , j	
+
+	
+	
+
+	
+	
+	
+
 
 using namespace std;
 
@@ -54,18 +64,7 @@ float matrix_sub(float A[9] , float B[9]);
 float matrix_mult(float A[9] , float B[9]);
 string matrixChooseS(string whichMatrix);
 float matrixChooseF(float whichMatrix);
-float matrixChoose9(float whichMatrix, 
-	float a[9],
-	float b[9],
-	float c[9],
-	float d[9],
-	float e[9],
-	float f[9],
-	float g[9],
-	float h[9],
-	float i[9],
-	float j[9]
-	 );
+float matrixChoose9(int whichMatrix, MATRICIES);
 
 
 int main() 
@@ -363,6 +362,8 @@ int main()
 				cin >> stillin;
 			}
 		}
+		int chooseM1;
+		int chooseM2;
 		if (mmode == 2)
 		{
 			stillin = 1;
@@ -376,7 +377,38 @@ int main()
 				text("4: Matrix Operations");
 				cin >> wop;
 				spa();
-				if (wop == 1)
+				if (wop == 1) // columns
+				{
+					text("1: Add");
+					text("2: Subtract");
+					text("3: Multiply");
+					text("4: Divide");
+					cin >> wmath;
+					spa();
+					if (wmath == 1)
+					{
+						text("Adds down the rows");
+						text("Rows are numbered left to right and 1-3");
+						text_sl("Which matrix? (0-9)" );
+						cin >> chooseM1;
+						text_sl("Which row? ");
+						cin >> chooseM2;
+						cout << matrixChoose9(chooseM1 , MCHOOSE ) << endl;
+					}
+					if (wmath == 2)
+					{
+						
+					}
+					if (wmath == 3)
+					{
+						
+					}
+					if (wmath == 4)
+					{
+						
+					}
+				}
+				if (wop == 2) // rows
 				{
 					text("1: Add");
 					text("2: Subtract");
@@ -401,7 +433,7 @@ int main()
 						
 					}
 				}
-				if (wop == 2)
+				if (wop == 3) // diags
 				{
 					text("1: Add");
 					text("2: Subtract");
@@ -426,32 +458,7 @@ int main()
 						
 					}
 				}
-				if (wop == 3)
-				{
-					text("1: Add");
-					text("2: Subtract");
-					text("3: Multiply");
-					text("4: Divide");
-					cin >> wmath;
-					spa();
-					if (wmath == 1)
-					{
-						
-					}
-					if (wmath == 2)
-					{
-						
-					}
-					if (wmath == 3)
-					{
-						
-					}
-					if (wmath == 4)
-					{
-						
-					}
-				}
-				if (wop == 4)
+				if (wop == 4) // matrix stuff
 				{
 					text("1: Add Two Matricies");
 					text("2: Subtract Two Matricies");
@@ -1210,18 +1217,7 @@ float matrixChooseF(float whichMatrix)
 	return choose[n];
 }
 
-float matrixChoose9(float whichMatrix, 
-	float a[9],
-	float b[9],
-	float c[9],
-	float d[9],
-	float e[9],
-	float f[9],
-	float g[9],
-	float h[9],
-	float i[9],
-	float j[9]
-	 )
+float matrixChoose9(int whichMatrix, MATRICIES)
 {
 	if (whichMatrix == 0)
 	{
