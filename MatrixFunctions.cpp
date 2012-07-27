@@ -11,13 +11,6 @@
 #define MATRICIES float a[9], float b[9], float c[9], float d[9], float e[9], float f[9], float g[9], float h[9], float i[9], float j[9]
 #define MCHOOSE a , b , c , d , e , f , g , h , i , j	
 
-	
-	
-
-	
-	
-	
-
 
 using namespace std;
 
@@ -1258,6 +1251,10 @@ float matrixChoose9(int whichMatrix, MATRICIES)
 	if (whichMatrix == 9)
 	{
 		return j[9];
+	}
+	if (whichMatrix > 9)
+	{
+		return 0;
 	}
 }
 
