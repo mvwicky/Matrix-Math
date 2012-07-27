@@ -17,7 +17,8 @@ void text (string words);
 void text_sl (string words);
 void spa();
 void numout (float num);
-void initialize_matrix(float a[9]);
+void initialize_matrix0(float a[9]);
+float initialize_matrixN(float a[] , int msize);
 float addition(float number1 , float number2); 
 float subtraction(float number1 , float number2);
 float muliplication(float number1 , float number2);
@@ -53,6 +54,19 @@ float matrix_sub(float A[9] , float B[9]);
 float matrix_mult(float A[9] , float B[9]);
 string matrixChooseS(string whichMatrix);
 float matrixChooseF(float whichMatrix);
+float matrixChoose9(float whichMatrix, 
+	float a[9],
+	float b[9],
+	float c[9],
+	float d[9],
+	float e[9],
+	float f[9],
+	float g[9],
+	float h[9],
+	float i[9],
+	float j[9]
+	 );
+
 
 int main() 
 {
@@ -71,25 +85,29 @@ int main()
 	int swmatrix;
 	string whichMatrixS;
 	float whichMatrixF;
-	//	string choose[10] = {"a" , "b" , "c", "d" , "e", "f", "g", "h", "i", "j"};
+//	float choose[4];
+	//initialize_matrixN(choose , 20);
+	
 	//	int n = 0;
 	while (test == 1)
 	{
+		text_sl("String");
 		cin >> whichMatrixS;
 		matrixChooseS(whichMatrixS);
+		text_sl("Number");
 		cin >> whichMatrixF;
 		matrixChooseF(whichMatrixF);
 	}	
-	initialize_matrix(a);
-	initialize_matrix(b);
-	initialize_matrix(c);
-	initialize_matrix(d);
-	initialize_matrix(e);
-	initialize_matrix(f);
-	initialize_matrix(g);
-	initialize_matrix(h);
-	initialize_matrix(i);
-	initialize_matrix(j);
+	initialize_matrix0(a);
+	initialize_matrix0(b);
+	initialize_matrix0(c);
+	initialize_matrix0(d);
+	initialize_matrix0(e);
+	initialize_matrix0(f);
+	initialize_matrix0(g);
+	initialize_matrix0(h);
+	initialize_matrix0(i);
+	initialize_matrix0(j);
 	int start_over = 1;
 	int stillin = 1;
 	int mmode;
@@ -699,12 +717,23 @@ void board(float a[9])
 	cout << "| " << a[6] << " | " << a[7] << " | " << a[8] << " |" << endl;
 }
 
-void initialize_matrix(float a[9])
+void initialize_matrix0(float a[9])
 {
 	int n = 0;
 	while (n <= 8)
 	{
 		a[n] = 0;
+		n = n + 1;
+	}
+}
+
+float initialize_matrixN(float a[] , int msize)
+{
+	int n = 0;
+	while (n <= (msize - 1))
+	{
+		a[n] = n;
+		cout << a[n] << endl;
 		n = n + 1;
 	}
 }
@@ -1179,3 +1208,20 @@ float matrixChooseF(float whichMatrix)
 	text("Done");
 	return choose[n];
 }
+
+float matrixChoose9(float whichMatrix, 
+	float a[9],
+	float b[9],
+	float c[9],
+	float d[9],
+	float e[9],
+	float f[9],
+	float g[9],
+	float h[9],
+	float i[9],
+	float j[9]
+	 )
+{
+	
+}
+
