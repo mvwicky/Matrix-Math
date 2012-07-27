@@ -81,7 +81,7 @@ int main()
 	float h[9];
 	float i[9];
 	float j[9];
-	int test = 1;
+	int test = 0;
 	int swmatrix;
 	string whichMatrixS;
 	float whichMatrixF;
@@ -679,7 +679,8 @@ int main()
 					spa();
 					
 				}
-				
+				text("Stay Here?");
+				cin >> stayform;
 			}
 		}
 	}
@@ -1222,6 +1223,45 @@ float matrixChoose9(float whichMatrix,
 	float j[9]
 	 )
 {
-	
+	if (whichMatrix == 0)
+	{
+		return a[9];
+	}
+	if (whichMatrix == 1)
+	{
+		return b[9];
+	}
+	if (whichMatrix == 2)
+	{
+		return c[9];
+	}
+	if (whichMatrix == 3)
+	{
+		return d[9];
+	}
+	if (whichMatrix == 4)
+	{
+		return e[9];
+	}
+	if (whichMatrix == 5)
+	{
+		return f[9];
+	}
+	if (whichMatrix == 6)
+	{
+		return g[9];
+	}
+	if (whichMatrix == 7)
+	{
+		return h[9];
+	}
+	if (whichMatrix == 8)
+	{
+		return i[9];
+	}
+	if (whichMatrix == 9)
+	{
+		return j[9];
+	}
 }
 
