@@ -7,9 +7,26 @@ Pi = 3.141592
 DEG_TO_RAD = (Pi / 180)
 a = [1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9]
 c = [1 , 2 , 4 , 4 , 5 , 6 , 7 , 8 , 9]
-ops = ["Addition" , "Subtraction" , "Multiplication" , "Division" , "Exponentation" , "Area of a Triangle" , "Perimeter of a Triangle" , 
-	   "Area of a Square" , "Perimeter of a Square" , "Area of a Rectangle" , "Perimeter of a Rectangle" , "Area of a Circle" , 
-	   "Circumference of a Circle" , "Area of an N-Gon" , "Perimeter of an N-Gon" , "Arc-Length" , "Segment of a Circle"]
+ops = ["Addition" , "Subtraction" , "Multiplication" , 
+	   "Division" , "Exponentation" , 
+	   "Area of a Triangle" , "Perimeter of a Triangle" , 
+	   "Area of a Square" , "Perimeter of a Square" , 
+	   "Area of a Rectangle" , "Perimeter of a Rectangle" , 
+	   "Area of a Circle" , "Circumference of a Circle" , 
+	   "Area of an N-Gon" , "Perimeter of an N-Gon" , 
+	   "Arc Length" , "Area of a Segment of a Circle" , 
+	   "Unit Conversions"]
+
+op_ins = ["Number 1 =" , "Number 2 =" , "Dividend =" , 
+	 	  "Divisor =" , "Side =" , "Side 1 =" , 
+	 	  "Side 2 =" , "Side 3 =" , "Base =" , "Power =" ,
+	 	  "Height =" , "Radius =" , "Number of Sides =" , 
+	 	  "Length of Sides =" , "Central Angle =" ] # 14
+
+op_outs = ["Sum =" , "Difference =" , "Product =" , 
+		   "Quotient =" , "Result =" , "Area =" , 
+		   "Perimeter =" , "Circumference =" , 
+		   "Arc Length =" , "Segment Area ="] # 10
 
 log = open("log.txt" , "a")
 
@@ -50,6 +67,7 @@ def addition(x , y):
 	log.write("Form:Add = ")
 	log.write(str(log_sum))
 	log.write("\n")
+	log.flush()
 	return sum
 	
 def subtraction(x , y):
@@ -58,6 +76,7 @@ def subtraction(x , y):
 	log.write("Form:Sub = ")
 	log.write(str(log_diff))
 	log.write("\n")
+	log.flush()
 	return difference
 
 def multiplication(x , y):
@@ -66,14 +85,16 @@ def multiplication(x , y):
 	log.write("Form:Mult = ")
 	log.write(str(log_prod))
 	log.write("\n")
+	log.flush()
 	return product
 	
 def division(x , y):
-	quotient = x / y
+	quotient = float(x) / float(y)
 	log_quot = quotient
 	log.write("Form:Div = ")
 	log.write(str(log_quot))
 	log.write("\n")
+	log.flush()
 	return quotient
 
 def exponentation(x , y):
@@ -82,6 +103,7 @@ def exponentation(x , y):
 	log.write("Form:Exp = ")
 	log.write(str(log_exp))
 	log.write("\n")
+	log.flush()
 	return result
 	
 def area_tri(B , H):
@@ -90,6 +112,7 @@ def area_tri(B , H):
 	log.write("Form:A_Tri = ")
 	log.write(str(log_area))
 	log.write("\n")
+	log.flush()
 	return area
 	
 def perim_tri(s1 , s2 , s3):
@@ -108,12 +131,14 @@ def perim_tri(s1 , s2 , s3):
 		log.write("Form:P_Tri = ")
 		log.write(str(log_perim))
 		log.write("\n")
+		log.flush()
 		return perim
 	if valid_triangle == 0:
 		log_perim = -1
 		log.write("Form:P_Tri = ")
 		log.write(str(log_perim))
 		log.write("\n")
+		log.flush()
 		return -1
 		
 def area_square(s):
@@ -122,6 +147,7 @@ def area_square(s):
 	log.write("Form:S_Area = ")
 	log.write(str(log_area))
 	log.write("\n")
+	log.flush()
 	return area
 
 def perim_square(s):
@@ -130,6 +156,7 @@ def perim_square(s):
 	log.write("Form:S_Perim = ")
 	log.write(str(log_perim))
 	log.write("\n")
+	log.flush()
 	return perim
 
 def area_rectangle(s1, s2):
@@ -138,6 +165,7 @@ def area_rectangle(s1, s2):
 	log.write("Form:R_Area = ")
 	log.write(str(log_area))
 	log.write("\n")
+	log.flush()
 	return area
 
 def perim_rectangle(s1 , s2):
@@ -146,6 +174,7 @@ def perim_rectangle(s1 , s2):
 	log.write("Form:R_Perim = ")
 	log.write(str(log_perim))
 	log.write("\n")
+	log.flush()
 	return perim
 	
 def area_circle(r):
@@ -154,6 +183,7 @@ def area_circle(r):
 	log.write("Form:C_Area = ")
 	log.write(str(log_area))
 	log.write("\n")
+	log.flush()
 	return area
 	
 def circumference(r):
@@ -162,6 +192,7 @@ def circumference(r):
 	log.write("Form:C_Circ = ")
 	log.write(str(log_circ))
 	log.write("\n")
+	log.flush()
 	return cir
 
 def area_ngon(n , l):
@@ -170,6 +201,7 @@ def area_ngon(n , l):
 	log.write("Form:A_N-Gon = ")
 	log.write(str(log_area))
 	log.write("\n")
+	log.flush()
 	return area
 
 def perim_ngon(n , l):
@@ -178,6 +210,7 @@ def perim_ngon(n , l):
 	log.write("Form:P_N-Gon = ")
 	log.write(str(log_perim))
 	log.write("\n")
+	log.flush()
 	return perim
 
 def arc_length(t , r):
@@ -186,6 +219,7 @@ def arc_length(t , r):
 	log.write("Form:A_Length = ")
 	log.write(str(log_length))
 	log.write("\n")
+	log.flush()
 	return l
 
 def segment_area(t , r):
@@ -194,6 +228,7 @@ def segment_area(t , r):
 	log.write("Form:S_Area = ")
 	log.write(str(log_area))
 	log.write("\n")
+	log.flush()
 	return a
 
 def adding_columns(a , c):
@@ -296,6 +331,32 @@ def div_diag(a , d):
 		quot = a[2] / a[4] / a[6]
 	return quot
 	
+def unit_conversions():
+	print "1. Length"
+	print "2. Mass/Weight"
+	print "3. Volume"
+	print "4. Temperature"
+	print "5. Currency"
+	i = input()
+	if i == 1: # Length
+		print "Meter       Foot"
+		print "Kilometer   Yard"
+		print "            Mile"
+	if i == 2: # Mass/Weight
+		print "Milligram   Ounce"
+		print "Gram        Pound"
+		print "Kilogram    Ton"
+		print "Metric Ton  Troy Ounce"
+	if i == 3: # Volume
+		print "Ounce       "
+		print "Pint"
+		print "Quart"
+		print "Gallon"
+	if i == 4: # Temperature
+		print ""
+	if i == 5: # Currency
+		print ""
+
 def do_things():
 	stay_d = 1
 	while stay_d == 1:
@@ -448,126 +509,128 @@ def do_things():
 		if c == 4: # Formulas
 			while stay_f == 1:
 				n = 1
-				num_ops = 17
+				num_ops = 18
 				while n <= num_ops:
 					print n, ops[n-1]
 					n += 1  
 				f = input()
 				os.system('cls')
 				if f == 1: # Addition
-					print "Addition"
-					print "Number 1 = "
+					print ops[0]
+					print op_ins[0]
 					s1 = input()
-					print "Number 2 = "
+					print op_ins[1]
 					s2 = input()
-					print "Sum = " , addition(s1, s2)
+					print op_outs[0] , addition(s1, s2)
 					os.system('pause')
 				if f == 2: # Subtraction
-					print "Number 1 = "
+					print op_ins[0]
 					s1 = input()
-					print "Number 2 = "
+					print op_ins[1]
 					s2 = input()
-					print "Difference = " , subtraction(s1 , s2)
+					print op_outs[1] , subtraction(s1 , s2)
 					os.system('pause')
 				if f == 3: # Multiplication
-					print "Number 1 = "
+					print op_ins[0]
 					s1 = input()
-					print "Number 2 = "
+					print op_ins[1]
 					s2 = input()
-					print "Product = " , multiplication(s1 , s2)
+					print op_outs[2] , multiplication(s1 , s2)
 					os.system('pause')
 				if f == 4: # Division
-					print "Dividend = "
+					print op_ins[2]
 					s1 = input()
-					print "Divisor = "
+					print op_ins[3]
 					s2 = input()
-					print "Quotient = " , division(s1 , s2)
+					print op_outs[3] , division(s1 , s2)
 					os.system('pause')
 				if f == 5: # Exponentation
-					print "Base = "
+					print op_ins[8]
 					s1 = input()
-					print "Power = "
+					print op_ins[9]
 					s2 = input()
-					print "Result = " , exponentation(s1 , s2)
+					print op_outs[4] , exponentation(s1 , s2)
 					os.system('pause')
 				if f == 6: # Area Triangle
-					print "Base = "
+					print op_ins[8]
 					s1 = input()
-					print "Height = "
+					print op_ins[10]
 					s2 = input()
-					print "Area =" , area_tri(s1 , s2)
+					print op_outs[5] , area_tri(s1 , s2)
 					os.system('pause')
 				if f == 7: # Perim Triangle
-					print "Side 1 = "
+					print op_ins[5]
 					s1 = input()
-					print "Side 2 ="
+					print op_ins[6]
 					s2 = input()
-					print "Side 3 ="
+					print op_ins[7]
 					s3 = input()
-					print "Perimeter = " , perim_tri(s1 , s2 , s3)
+					print op_outs[6] , perim_tri(s1 , s2 , s3)
 					os.system('pause')
 				if f == 8: # Area Square
-					print "Side = "
+					print op_ins[4]
 					s1 = input()
-					print "Area = " , area_square(s1)
+					print op_outs[5] , area_square(s1)
 					os.system('pause')
 				if f == 9: # Perim Square
-					print "Side = "
+					print op_ins[4]
 					s1 = input()
-					print "Perimeter = " , perim_square(s1)
+					print op_outs[6] , perim_square(s1)
 					os.system('pause')
 				if f == 10: # Area Rectangle
-					print "Side 1 = "
+					print op_ins[5]
 					s1 = input()
-					print "Side 2 = "
+					print op_ins[6]
 					s2 = input()
-					print "Area = " , area_rectangle(s1 , s2)
+					print op_outs[5] , area_rectangle(s1 , s2)
 					os.system('pause')
 				if f == 11: # Perim Recatangle
-					print "Side 1 = "
+					print op_ins[5]
 					s1 = input()
-					print "Side 2 = "
+					print op_ins[6]
 					s2 = input()
-					print "Perimeter = " , perim_rectangle(s1 , s2)
+					print op_outs[6] , perim_rectangle(s1 , s2)
 					os.system('pause')
 				if f == 12: # Area Circle
-					print "Radius = "
+					print op_ins[11]
 					s1 = input()
-					print "Area = " , area_circle(s1)
+					print op_outs[5] , area_circle(s1)
 					os.system('pause')
 				if f == 13: # Circumference Circle
-					print "Radius = "
+					print op_ins[11]
 					s1 = input()
-					print "Circumference = " , circumference(s1)
+					print op_outs[7] , circumference(s1)
 					os.system('pause')
 				if f == 14: # Area N-Gon
-					print "Number of Sides = "
+					print op_ins[12]
 					s1 = input()
-					print "Length of Sides = "
+					print op_ins[13]
 					s2 = input()
-					print "Area = " , area_ngon(s1 , s2)
+					print op_outs[5] , area_ngon(s1 , s2)
 					os.system('pause')
 				if f == 15: # Perim N-Gon 
-					print "Number of Sides = "
+					print op_ins[12]
 					s1 = input()
-					print "Length of Sides = "
+					print op_ins[13]
 					s2 = input()
-					print "Perimeter = " , perim_ngon(s1 , s2)
+					print op_outs[6] , perim_ngon(s1 , s2)
 					os.system('pause')
 				if f == 16: # Arc Length
-					print "Central Angle = "
+					print op_ins[14]
 					t = input()
-					print "Radius = "
+					print op_ins[11]
 					r = input()
-					print "Arc Length = " , arc_length(t , r)
+					print op_outs[8] , arc_length(t , r)
 					os.system('pause')
 				if f == 17: # Segment Circle
-					print "Central Angle = "
+					print op_ins[14]
 					t = input()
-					print "Radius = "
+					print op_ins[11]
 					r = input()
-					print "Segment Area = " , segment_area(t , r)
+					print op_outs[9] , segment_area(t , r)
 					os.system('pause')
+				if f == 18:
+
 				os.system('cls')
 				print "Stay in Formulas?"
 				stay_f = input()
