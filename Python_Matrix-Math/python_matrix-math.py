@@ -339,9 +339,30 @@ def unit_conversions():
 	print "5. Currency"
 	i = input()
 	if i == 1: # Length
-		print "Meter       Foot"
-		print "Kilometer   Yard"
-		print "            Mile"
+		print "Starting Unit"
+		print "1. Meter       3. Foot"
+		print "2. Kilometer   4. Yard"
+		print "               5. Mile"
+		q = input()
+		if q == 1 | q == "Meter":
+			print "Converting To"
+			print "1. Kilometer"
+			print "2. Foot"
+			print "3. Yard"
+			print "4. Mile"
+			h = input()
+			if h == 1 | h == "Kilometer":
+				print "conversion here"
+				os.system('pause')
+			os.system('pause')
+		if q == 2 | q == "Kilometer":
+			print "Converting To"
+			print "1. Meter"
+			print "2. Foot"
+			print "3. Yard"
+			print "4. Mile"
+			h = input()
+			os.system('pause')
 	if i == 2: # Mass/Weight
 		print "Milligram   Ounce"
 		print "Gram        Pound"
@@ -353,9 +374,19 @@ def unit_conversions():
 		print "Quart"
 		print "Gallon"
 	if i == 4: # Temperature
-		print ""
+		print "Farenheit"
+		print "Celsius"
+		print "Kelvin"
+		print "Rankine"
+		print "Delisle"
+		print "Newton"
 	if i == 5: # Currency
-		print ""
+		print "USD"
+		print "EUR"
+		print "GBP"
+		print "CAD"
+		print "JPY"
+		print "CNY"
 
 def do_things():
 	stay_d = 1
@@ -630,7 +661,8 @@ def do_things():
 					print op_outs[9] , segment_area(t , r)
 					os.system('pause')
 				if f == 18:
-
+					print ""
+					unit_conversions()
 				os.system('cls')
 				print "Stay in Formulas?"
 				stay_f = input()
