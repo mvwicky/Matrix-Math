@@ -2,6 +2,7 @@
 
 import math
 import os
+import time
 
 Pi = 3.141592
 DEG_TO_RAD = (Pi / 180)
@@ -28,7 +29,41 @@ op_outs = ["Sum =" , "Difference =" , "Product =" ,
 		   "Perimeter =" , "Circumference =" , 
 		   "Arc Length =" , "Segment Area ="] # 10
 
+log_outs = ["Form:Add = " , "Form:Sub = " , "Form:Mult = ", 
+			"Form:Div = " , "Form:Exp = " , "Form:P_Tri = " ,
+			"Form:A_Tri = " , "Form:S_Area = " , "Form:S_Perim = " , 
+			"Form:R_Area = " , "Form:R_Perim = " , "Form:C_Area = " ,
+			"Form:C_Circ = " , "Form:A_N-Gon = " , "Form:P_N-Gon = " ,
+			"Form:A_Length = " , "Form:S_Area = " ] # 17
+
+units = ["meters" , "kilometers" , "feet" , "yards" , "miles" , "milligrams" , 
+		 "grams" , "kilograms" , "metric tons" , "ounces" , "pounds" , "tons" ,
+		 "troy ounces" , "fl ounces" , "pints" , "quarts" , "gallons" , 
+		 "farenheit" , "celsius" , "kelvin" , "rankine" , "delisle" , 
+		 "Newton" , "USD" , "EUR" , "GBP" , "CAD" , "JPY", "CNY"]
+
+len_factors = []
+
+start_time = time.time()
 log = open("log.txt" , "a")
+
+
+def conv_log(t , f , s , r):
+	log.write(str(s))
+	log.write(" ")
+	log.write(units[t])
+	log.write(" converted to ")
+	log.write(str(r))
+	log.write(" ")
+	log.write(units[f])
+	log.write("\n")
+	log.flush()
+
+def log_write(out , n):
+	log.write(log_outs[n])
+	log.write(str(out))
+	log.write("\n")
+	log.flush()
 
 def show_functions(o):
 	n = 1
@@ -63,56 +98,32 @@ def assign_all_values(a , v):
 
 def addition(x , y):
 	sum = x + y
-	log_sum = sum;
-	log.write("Form:Add = ")
-	log.write(str(log_sum))
-	log.write("\n")
-	log.flush()
+	log_write(sum , 0)
 	return sum
 	
 def subtraction(x , y):
 	difference = x + y
-	log_diff = difference
-	log.write("Form:Sub = ")
-	log.write(str(log_diff))
-	log.write("\n")
-	log.flush()
+	log_write(difference , 1)
 	return difference
 
 def multiplication(x , y):
 	product = x * y
-	log_prod = product
-	log.write("Form:Mult = ")
-	log.write(str(log_prod))
-	log.write("\n")
-	log.flush()
+	log_write(product , 2)
 	return product
 	
 def division(x , y):
 	quotient = float(x) / float(y)
-	log_quot = quotient
-	log.write("Form:Div = ")
-	log.write(str(log_quot))
-	log.write("\n")
-	log.flush()
+	log_write(quotient , 3)
 	return quotient
 
 def exponentation(x , y):
 	result = math.pow(x , y)
-	log_exp = result
-	log.write("Form:Exp = ")
-	log.write(str(log_exp))
-	log.write("\n")
-	log.flush()
+	log_write(result , 4)
 	return result
 	
 def area_tri(B , H):
 	area = (B * H) / 2
-	log_area = area
-	log.write("Form:A_Tri = ")
-	log.write(str(log_area))
-	log.write("\n")
-	log.flush()
+	log_write(area , 5)
 	return area
 	
 def perim_tri(s1 , s2 , s3):
@@ -127,108 +138,61 @@ def perim_tri(s1 , s2 , s3):
 		valid_triangle = 1
 	if valid_triangle == 1:
 		perim = s2 + s2 + s3
-		log_perim = perim
-		log.write("Form:P_Tri = ")
-		log.write(str(log_perim))
-		log.write("\n")
+		log_write(perim , 6)
 		log.flush()
 		return perim
 	if valid_triangle == 0:
-		log_perim = -1
-		log.write("Form:P_Tri = ")
-		log.write(str(log_perim))
-		log.write("\n")
-		log.flush()
+		log_write(-1 , 6)
 		return -1
 		
 def area_square(s):
 	area = s * s
-	log_area = area
-	log.write("Form:S_Area = ")
-	log.write(str(log_area))
-	log.write("\n")
-	log.flush()
+	log_write(area , 7)
 	return area
 
 def perim_square(s):
 	perim = s * 4
-	log_perim = perim
-	log.write("Form:S_Perim = ")
-	log.write(str(log_perim))
-	log.write("\n")
-	log.flush()
+	log_write(perim , 8)
 	return perim
 
 def area_rectangle(s1, s2):
 	area = s1 * s2
-	log_area = area
-	log.write("Form:R_Area = ")
-	log.write(str(log_area))
-	log.write("\n")
-	log.flush()
+	log_write(area , 9)
 	return area
 
 def perim_rectangle(s1 , s2):
 	perim = (2 * s1) + (2 * s2)
-	log_perim = perim
-	log.write("Form:R_Perim = ")
-	log.write(str(log_perim))
-	log.write("\n")
-	log.flush()
+	log_write(perim , 10)
 	return perim
 	
 def area_circle(r):
 	area = Pi * (r * r)
-	log_area = area
-	log.write("Form:C_Area = ")
-	log.write(str(log_area))
-	log.write("\n")
-	log.flush()
+	log_write(area , 11)
 	return area
 	
 def circumference(r):
 	cir = (2 * r) * Pi
-	log_circ = cir
-	log.write("Form:C_Circ = ")
-	log.write(str(log_circ))
-	log.write("\n")
-	log.flush()
+	log_write(cir , 12)
 	return cir
 
 def area_ngon(n , l):
 	area = (.25 * (n * (l * l)) * (1 / math.tan(Pi / n)))
-	log_area = area
-	log.write("Form:A_N-Gon = ")
-	log.write(str(log_area))
-	log.write("\n")
-	log.flush()
+	log_write(area , 13)
 	return area
 
 def perim_ngon(n , l):
 	perim = n * l
-	log_perim = perim
-	log.write("Form:P_N-Gon = ")
-	log.write(str(log_perim))
-	log.write("\n")
-	log.flush()
+	log_write(perim , 14)
 	return perim
 
 def arc_length(t , r):
 	l = t * r
-	log_length = l
-	log.write("Form:A_Length = ")
-	log.write(str(log_length))
-	log.write("\n")
-	log.flush()
+	log_write(l , 15)
 	return l
 
 def segment_area(t , r):
 	a = ((r**2) / 2 ) * ( (DEG_TO_RAD * t) - math.sin(DEG_TO_RAD * t) ) 
-	log_area = a
-	log.write("Form:S_Area = ")
-	log.write(str(log_area))
-	log.write("\n")
-	log.flush()
+	log_write(a , 16)
 	return a
 
 def adding_columns(a , c):
@@ -344,49 +308,642 @@ def unit_conversions():
 		print "2. Kilometer   4. Yard"
 		print "               5. Mile"
 		q = input()
-		if q == 1 | q == "Meter":
-			print "Converting To"
+		if q == 1: # meters to
+			print "Meters to"
 			print "1. Kilometer"
 			print "2. Foot"
 			print "3. Yard"
 			print "4. Mile"
 			h = input()
-			if h == 1 | h == "Kilometer":
-				print "conversion here"
+			if h == 1: # kilometers
+				print "Meters = "
+				a = input()
+				r = float(a) * .001
+				print "In kilometers = " , r
 				os.system('pause')
-			os.system('pause')
-		if q == 2 | q == "Kilometer":
-			print "Converting To"
+				conv_log(0 , 1 , a , r)
+			if h == 2: # feet
+				print "Meters = "
+				a = input()
+				r = float(a) * 3.28084
+				print "In feet = " , r
+				os.system('pause')
+				conv_log(0 , 2 , a , r)
+			if h == 3: # yards
+				print "Meters = "
+				a = input()
+				r = float(a) * 1.09361
+				print "In yards = " , r
+				os.system('pause')
+				conv_log(0 , 3 , a , r)
+			if h == 4: # miles
+				print "Meters = "
+				a = input()
+				r = float(a) * .000621371
+				print "In miles = " , r	
+				os.system('pause')
+				conv_log(0 , 4 , a , r)	
+		if q == 2: # kilometers to
+			print "Kilometers to"
 			print "1. Meter"
 			print "2. Foot"
 			print "3. Yard"
 			print "4. Mile"
 			h = input()
+			if h == 1: # meters
+				print "Kilometers = "
+				a = input()
+				r = float(a) * 1000
+				print "In meters = " , r
+				os.system('pause')
+				conv_log(1 , 0 , a , r)
+			if h == 2: # feet
+				print "Kilometers = "
+				a = input()
+				r = float(a) * 3280.84
+				print "In feet = " , r
+				os.system('pause')
+				conv_log(1 , 2 , a , r)
+			if h == 3: # yards
+				print "Kilometers = "
+				a = input()
+				r = float(a) * 1093.61
+				print "In yards = " , r
+				os.system('pause')
+				conv_log(1 , 3 , a , r)
+			if h == 4: # miles
+				print "Kilometers = "
+				a = input()
+				r = float(a) * .621371	
+				print "In miles = " , r
+				os.system('pause')
+				conv_log(1 , 4 , a , r)	
+		if q == 3: # feet to
+			print "Feet to"
+			print "1. Meter"
+			print "2. Kilometer"
+			print "3. Yard"
+			print "4. Mile"
+			h = input()
+			if h == 1: # meters
+				print "Feet = "
+				a = input()
+				r = float(a) * .3048
+				print "In meters = " , r
+				os.system('pause')
+				conv_log(2 , 0 , a , r)
+			if h == 2: # kilometers
+				print "Feet = "
+				a = input()
+				r = float(a) * .0003048
+				print "In kilometers = " , r
+				os.system('pause')
+				conv_log(2 , 1 , a , r)
+			if h == 3: # yards
+				print "Feet = "
+				a = input()
+				r = float(a) * .33333333
+				print "In yards = " , r
+				os.system('pause')
+				conv_log(2 , 3 , a , r)
+			if h == 4: # miles
+				print "Feet = "
+				a = input()
+				r = float(a) * .000189394
+				print "In miles = " , r
+				os.system('pause')
+				conv_log(2 , 4 , a , r)	
+		if q == 4: # yards to
+			print "Yards to"
+			print "1. Meter"
+			print "2. Kilometer"
+			print "3. Foot"
+			print "4. Mile"
+			h = input()
+			if h == 1: # meters
+				print "Yards = "
+				a = input()
+				r = float(a) * .9144
+				print "In meters = " , r
+				os.system('pause')
+				conv_log(3 , 0 , a , r)
+			if h == 2: # kilometers
+				print "Yards = "
+				a = input()
+				r = float(a) * .0009144
+				print "In kilometers = " , r
+				os.system('pause')
+				conv_log(3 , 1 , a , r)
+			if h == 3: # feet
+				print "Yards = "
+				a = input()
+				r = float(a) * 3
+				print "In feet = " , r
+				os.system('pause')
+				conv_log(3 , 2 , a , r)
+			if h == 4: # mile
+				print "Yards = "	
+				a = input()
+				r = float(a) * .000568182
+				print "In miles = " , r
+				os.system('pause')
+				conv_log(3 , 4 , a , r)	
+		if q == 5: # miles to
+			print "Miles to"
+			print "1. Meter"
+			print "2. Kilometer"
+			print "3. Foot"
+			print "4. Yard"
+			if h == 1: # meters
+				print "Miles = "
+				a = input()
+				r = float(a) * 1609.34
+				print "In meters = " , r
+				os.system('pause')
+				conv_log(4 , 0 , a , r)
+			if h == 2: # kilometers
+				print "Miles = "
+				a = input()
+				r = float(a) * 1.60934
+				print "In kilometers = " , r
+				os.system('pause')
+				conv_log(4 , 1 , a , r)
+			if h == 3: # feet
+				print "Miles = "
+				a = input()
+				r = float(a) * 5280
+				print "In feet = " , r
+				os.system('pause')
+				conv_log(4 , 2 , a , r)
+			if h == 4: # yards
+				print "Miles = "
+				a = input() 
+				r = float(a) * 1760
+				print "In yards = " , r
+				os.system('pause')	
+				conv_log(4 , 3 , a , r)
 			os.system('pause')
 	if i == 2: # Mass/Weight
-		print "Milligram   Ounce"
-		print "Gram        Pound"
-		print "Kilogram    Ton"
-		print "Metric Ton  Troy Ounce"
+		print "Starting Unit"
+		print "1. Milligram   5. Ounce"
+		print "2. Gram        6. Pound"
+		print "3. Kilogram    7. Ton"
+		print "4. Metric Ton  8. Troy Ounce"
+		q = input()
+		if q == 1:
+			print "Milligrams to"
+			print "1. Grams"
+			print "2. Kilograms"
+			print "3. Metric Tons"
+			print "4. Ounces"
+			print "5. Pounds"
+			print "6. Tons"
+			print "7. Troy Ounces"
+			h = input()
+			if h == 1:
+				print "Milligrams = "
+				a = input()
+				r = float(a) * .001
+				print "In grams = " , r
+				os.system('pause')
+				conv_log(5 , 6 , a , r)
+			if h == 2:
+				print "Milligrams = "
+				a = input()
+				r = float(a) * .000001
+				print "In kilograms = " , r
+				os.system('pause')
+				conv_log(5 , 7 , a , r)
+			if h == 3:
+				print "Milligrams = "
+				a = input()
+				r = float(a) * .000000001
+				print "In metric tons = " , r
+				os.system('pause')
+				conv_log(5 , 8 , a , r)
+			if h == 4:
+				print "Milligrams = "
+				a = input()
+				r = float(a) * .000035274
+				print "In ounces = " , r
+				os.system('pause')
+				conv_log(5 , 9 , a , r)
+			if h == 5:
+				print "Milligrams = "
+				a = input()
+				r = float(a) * .0000022046
+				print "In pounds = " , r
+				os.system('pause')
+				conv_log(5 , 10 , a , r)
+			if h == 6:
+				print "Milligrams = "
+				a = input()
+				r = float(a) * .0000000011023
+				print "In tons = " , r
+				os.system('pause')
+				conv_log(5 , 11 , a , r)
+			if h == 7:
+				print "Milligrams = "
+				a = input()
+				r = float(a) * .0000321507466
+				print "In troy ounces = " , r
+				os.system('pause')
+				conv_log(5 , 11 , a , r)
+		if q == 2:
+			print "Grams to"
+			print "1. Milligrams"
+			print "2. Kilograms"
+			print "3. Metric Tons"
+			print "4. Ounces"
+			print "5. Pounds"
+			print "6. Tons"
+			print "7. Troy Ounces"
+			h = input()
+			if h == 1:
+				print "Grams = "
+				a = input()
+				r = float(a) * 1000
+				print "In milligrams = " , r
+				os.system('pause')
+				conv_log(6 , 5 , a , r)
+			if h == 2:
+				print "Grams = "
+				a = input()
+				r = float(a) * .001
+				print "In kilograms = " , r
+				os.system('pause')
+				conv_log(6 , 7 , a , r)
+			if h == 3:
+				print "Grams = "
+				a = input()
+				r = float(a) * .000001
+				print "In metric tons = " , r
+				os.system('pause')
+				conv_log(6 , 8 , a , r)
+			if h == 4:
+				print "Grams = "
+				a = input()
+				r = float(a) * .035274
+				print "In ounces = " , r
+				os.system('pause')
+				conv_log(6 , 9 , a , r)
+			if h == 5:
+				print "Grams = "
+				a = input()
+				r = float(a) * .00220462
+				print "In pounds = " , r
+				os.system('pause')
+				conv_log(6 , 10 , a , r)
+			if h == 6:
+				print "Grams = "
+				a = input()
+				r = float(a) * .0000011023
+				print "In tons = " ,  r
+				os.system('pause')
+				conv_log(6 , 11 , a , r)
+			if h == 7:
+				print "Grams = "
+				a = input()
+				r = float(a) * .0321507466
+				print "In troy ounces = " , r
+				os.system('pause')
+				conv_log(6 , 12 , a , r)
+		if q == 3:
+			print "Kilograms to"
+			print "1. Milligrams"
+			print "2. Grams"
+			print "3. Metric Tons"
+			print "4. Ounces"
+			print "5. Pounds"
+			print "6. Tons"
+			print "7. Troy Ounces"
+			h = input()
+			if h == 1:
+				print "Kilograms = "
+				a = input()
+				r = float(a) * 1000000
+				print "In milligrams = " , r
+				os.system('pause')
+			if h == 2:
+				print "Kilograms = "
+				a = input()
+				r = float(a) * 1000
+				print "In grams = " , r
+				os.system('pause')
+			if h == 3:
+				print "Kilograms = "
+				a = input()
+				r = float(a) * .001
+				print "In metric tons = " , r
+				os.system('pause')
+			if h == 4:
+				print "Kilograms = "
+				a = input()
+				r = float(a) * 35.274
+				print "In ounces = " , r
+				os.system('pause')
+			if h == 5:
+				print "Kilograms = "
+				a = input()
+				r = float(a) * 2.20462
+				print "In pounds = " , r
+				os.system('pause')
+			if h == 6:
+				print "Kilograms = "
+				a = input()
+				r = float(a) * .00110231
+				print "In tons = " , r
+				os.system('pause')
+			if h == 7:
+				print "Kilograms = "
+				a = input()
+				r = float(a) * 32.1507466
+				print "In troy ounces = " , r
+				os.system('pause')
+		if q == 4:
+			print "Metric Tons to"
+			print "1. Milligrams"
+			print "2. Grams"
+			print "3. Kilograms"
+			print "4. Ounces"
+			print "5. Pounds"
+			print "6. Tons"
+			print "7. Troy Ounces"
+			h = input()
+			if h == 1:
+				print "Metric Tons = "
+				a = input()
+				r = float(a) * 1000000000
+				print "In milligrams = " , r
+				os.system('pause')
+			if h == 2:
+				print "Metric Tons = "
+				a = input()
+				r = float(a) * 1000000
+				print "In grams = " , r
+				os.system('pause')
+			if h == 3:
+				print "Metric Tons = "
+				a = input()
+				r = float(a) * 1000
+				print "In Kilograms = " , r
+				os.system('pause') 
+			if h == 4:
+				print "Metric Tons = "
+				a = input()
+				r = float(a) * 35274
+				print "In ounces = " , r
+				os.system('pause')
+			if h == 5:
+				print "Metric Tons = "
+				a = input()
+				r = float(a) * 2204.62
+				print "In pounds = " , r
+				os.system('pause')
+			if h == 6:
+				print "Metric Tons = "
+				a = input()
+				r = float(a) * 1.10231
+				print "In tons = " , r
+				os.system('pause')
+			if h == 7:
+				print "Metric Tons = "
+				a = input()
+				r = float(a) * 32150.7466
+				print "In troy ounces = " , r
+				os.system('pause')
+		if q == 5:
+			print "Ounces to"
+			print "1. Milligrams"
+			print "2. Grams"
+			print "3. Kilograms"
+			print "4. Metric tons"
+			print "5. Pounds"
+			print "6. Tons"
+			print "7. Troy Ounces"
+			h = input()
+			if h == 1:
+				print "Ounces = "
+				a = input()
+				r = float(a) * 28349.5
+				print "In milligrams = " , r
+				os.system('pause')
+			if h == 2:
+				print "Ounces = "
+				a = input()
+				r = float(a) * 28.3495
+				print "In grams = " , r
+				os.system('pause')
+			if h == 3:
+				print "Ounces = "
+				a = input()
+				r = float(a) * .0283495
+				print "In kilograms = " , r
+				os.system('pause')
+			if h == 4:
+				print "Ounces = "
+				a = input()
+				r = float(a) * .00002835
+				print "In metric tons = " , r
+				os.system('pause')
+			if h == 5:
+				print "Ounces = "
+				a = input()
+				r = float(a) * .0625
+				print "In pounds = " , r
+				os.system('pause')
+			if h == 6:
+				print "Ounces = "
+				a = input()
+				r = float(a) * .00003125
+				print "In tons = " , r
+				os.system('pause')
+			if h == 7:
+				print "Ounces = "
+				a = input()
+				r = float(a) * .911458333
+				print "In troy ounces = " , r
+				os.system('pause')
+		if q == 6:
+			print "Pounds to"
+			print "1. Milligrams"
+			print "2. Grams"
+			print "3. Kilograms"
+			print "4. Metric tons"
+			print "5. Ounces"
+			print "6. Tons"
+			print "7. Troy Ounces"
+			h = input()
+			if h == 1:
+				print "Pounds = "
+				a = input()
+				r = float(a) * 453592
+				print "In milligrams = " , r
+				os.system('pause')
+			if h == 2:
+				print "Pounds = "
+				a = input()
+				r = float(a) * 453.592
+				print "In grams = " , r
+				os.system('pause')
+			if h == 3:
+				print "Pounds = "
+				a = input()
+				r = float(a) * .453592
+				print "In kilograms = " , r
+				os.system('pause')
+			if h == 4:
+				print "Pounds = "
+				a = input()
+				r = float(a) * .000453592
+				print "In metric tons = " , r
+				os.system('pause')
+			if h == 5:
+				print "Pounds = "
+				a = input()
+				r = float(a) * 16
+				print "In ounces = " , r
+				os.system('pause')
+			if h == 6:
+				print "Pounds = "
+				a = input()
+				r = float(a) * .0005
+				print "In tons = " , r
+				os.system('pause')
+			if h == 7:
+				print "Pounds = "
+				a = input()
+				r = float(a) * 14.5833333
+				print "In troy ounces = " , r
+				os.system('pause')
+		if q == 7:
+			print "Tons to"
+			print "1. Milligrams"
+			print "2. Grams"
+			print "3. Kilograms"
+			print "4. Metric tons"
+			print "5. Ounces"
+			print "6. Pounds"
+			print "7. Troy Ounces"
+			h = input()
+			if h == 1:
+				print "Tons = "
+				a = input()
+				r = float(a) * 907200000
+				print "In milligrams = " , r
+				os.system('pause')
+			if h == 2:
+				print "Tons = "
+				a = input()
+				r = float(a) * 907185
+				print "In grams = " , r
+				os.system('pause')
+			if h == 3:
+				print "Tons = "
+				a = input()
+				r = float(a) * 907.185
+				print "In kilograms = " , r
+				os.system('pause')
+			if h == 4:
+				print "Tons = "
+				a = input()
+				r = float(a) * .907185
+				print "In metric tons = " , r
+				os.system('pause')
+			if h == 5:
+				print "Tons = "
+				a = input()
+				r = float(a) * 32000
+				print "In ounces = " , r
+				os.system('pause')
+			if h == 6:
+				print "Tons = "
+				a = input()
+				r = float(a) * 2000
+				print "In pounds = " , r
+				os.system('pause')
+			if h == 7:
+				print "Tons = "
+				a = input()
+				r = float(a) * 29166.6667
+				print "In troy ounces = " , r
+				os.system('pause')
+		if q == 8:
+			print "Troy Ounces to"
+			print "1. Milligrams"
+			print "2. Grams"
+			print "3. Kilograms"
+			print "4. Metric tons"
+			print "5. Ounces"
+			print "6. Pounds"
+			print "7. Tons"
+			h = input()
+			if h == 1:
+				print "Troy Ounces = "
+				a = input()
+				r = float(a) * 31103.4768
+				print "In milligrams = " , r
+				os.system('pause')
+			if h == 2:
+				print "Troy Ounces = "
+				a = input()
+				r = float(a) * 31.1034768
+				print "In grams = " , r
+				os.system('pause')
+			if h == 3:
+				print "Troy Ounces = "
+				a = input()
+				r = float(a) * .0311034768
+				print "In kilograms = " , r
+				os.system('pause')
+			if h == 4:
+				print "Troy Ounces = "
+				a = input()
+				r = float(a) * .0000311034768
+				print "In metric tons = " , r
+				os.system('pause')
+			if h == 5:
+				print "Troy Ounces = "
+				a = input()
+				r = float(a) * 1.09714286
+				print "In ounces = " , r
+				os.system('pause')
+			if h == 6:
+				print "Troy Ounces = "
+				a = input()
+				r = float(a) * .0685714286
+				print "In pounds = " , r
+				os.system('pause')
+			if h == 7:
+				print "Troy Ounces = "
+				a = input()
+				r = float(a) * .0000342857143
+				print "In tons = " , r
+				os.system('pause')
 	if i == 3: # Volume
-		print "Ounce       "
-		print "Pint"
-		print "Quart"
-		print "Gallon"
+		print "1. Teaspoon     7. Milliliter"
+		print "2. Tablespoon   8. Liter"
+		print "3. Ounce        9. Cubic Meter"
+		print "4. Pint"
+		print "5. Quart"
+		print "6. Gallon"
+		q = input()
 	if i == 4: # Temperature
-		print "Farenheit"
-		print "Celsius"
-		print "Kelvin"
-		print "Rankine"
-		print "Delisle"
-		print "Newton"
+		print "1. Farenheit"
+		print "2. Celsius"
+		print "3. Kelvin"
+		print "4. Rankine"
+		print "5. Delisle"
+		print "6. Newton"
+		q = input()
 	if i == 5: # Currency
-		print "USD"
-		print "EUR"
-		print "GBP"
-		print "CAD"
-		print "JPY"
-		print "CNY"
+		print "1. USD"
+		print "2. EUR"
+		print "3. GBP"
+		print "4. CAD"
+		print "5. JPY"
+		print "6. CNY"
+		q = input()
 
 def do_things():
 	stay_d = 1
